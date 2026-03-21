@@ -1,0 +1,237 @@
+<Page x:Class="DoesLLMFit.Views.HardwareSetupPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+      Background="{ThemeResource BackgroundBrush}">
+
+  <ScrollViewer>
+    <StackPanel Spacing="20" MaxWidth="680" HorizontalAlignment="Left"
+                Padding="32,28,32,40">
+
+      <!-- Header -->
+      <StackPanel Spacing="6" Margin="0,0,0,4">
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <FontIcon Glyph="&#xE964;" FontSize="28"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    Foreground="{ThemeResource PrimaryBrush}"
+                    VerticalAlignment="Center" />
+          <TextBlock Text="Hardware Setup"
+                     Style="{ThemeResource TitleLargeTextBlockStyle}"
+                     VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="Enter your hardware specs to find out which LLMs will run on your machine."
+                   Style="{ThemeResource BodyTextBlockStyle}"
+                   Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                   Margin="40,0,0,0" />
+      </StackPanel>
+
+      <!-- ═══ CARD: System Type ═══ -->
+      <Border Background="{ThemeResource SurfaceBrush}"
+              CornerRadius="16" Padding="24,20"
+              BorderBrush="{ThemeResource OutlineVariantBrush}"
+              BorderThickness="1">
+        <StackPanel Spacing="14">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <FontIcon Glyph="&#xE7F8;" FontSize="18"
+                      FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                      Foreground="{ThemeResource PrimaryBrush}"
+                      VerticalAlignment="Center" />
+            <TextBlock Text="System Type"
+                       FontSize="16" FontWeight="SemiBold"
+                       VerticalAlignment="Center" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <RadioButton x:Name="PcRadio" IsChecked="True"
+                         Checked="Architecture_Changed">
+              <StackPanel Orientation="Horizontal" Spacing="6">
+                <FontIcon Glyph="&#xE7F8;" FontSize="14"
+                          FontFamily="{ThemeResource SymbolThemeFontFamily}" />
+                <TextBlock Text="PC (Discrete GPU)" VerticalAlignment="Center" />
+              </StackPanel>
+            </RadioButton>
+            <RadioButton x:Name="AppleSiliconRadio"
+                         Checked="Architecture_Changed">
+              <StackPanel Orientation="Horizontal" Spacing="6">
+                <FontIcon Glyph="&#xE8EA;" FontSize="14"
+                          FontFamily="{ThemeResource SymbolThemeFontFamily}" />
+                <TextBlock Text="Apple Silicon (Unified)" VerticalAlignment="Center" />
+              </StackPanel>
+            </RadioButton>
+          </StackPanel>
+          <TextBlock Text="PC: System RAM + dedicated GPU VRAM are separate. Apple Silicon: CPU and GPU share unified memory."
+                     Style="{ThemeResource CaptionTextBlockStyle}"
+                     Foreground="{ThemeResource OnSurfaceVariantBrush}"
+                     TextWrapping="Wrap" />
+        </StackPanel>
+      </Border>
+
+      <!-- ═══ CARD: GPU Configuration ═══ -->
+      <Border Background="{ThemeResource SurfaceBrush}"
+              CornerRadius="16" Padding="24,20"
+              BorderBrush="{ThemeResource OutlineVariantBrush}"
+              BorderThickness="1">
+        <StackPanel Spacing="18">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <FontIcon Glyph="&#xE835;" FontSize="18"
+                      FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                      Foreground="{ThemeResource PrimaryBrush}"
+                      VerticalAlignment="Center" />
+            <TextBlock Text="GPU Configuration"
+                       FontSize="16" FontWeight="SemiBold"
+                       VerticalAlignment="Center" />
+          </StackPanel>
+
+          <!-- GPU Picker -->
+          <StackPanel Spacing="6">
+            <TextBlock Text="GPU Model"
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       FontWeight="SemiBold"
+                       Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+            <ComboBox x:Name="GpuComboBox"
+                      PlaceholderText="Select your GPU..."
+                      HorizontalAlignment="Stretch"
+                      SelectionChanged="GpuComboBox_SelectionChanged" />
+            <TextBlock Text="Auto-fills VRAM and bandwidth. Override values below if needed."
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+          </StackPanel>
+
+          <!-- VRAM + Bandwidth side by side -->
+          <Grid ColumnSpacing="16">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Spacing="6" Grid.Column="0">
+              <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="SemiBold"
+                         Foreground="{ThemeResource OnSurfaceVariantBrush}">
+                <Run Text="VRAM" />
+                <Run Text=" (GB)" />
+              </TextBlock>
+              <muxc:NumberBox x:Name="VramBox"
+                              Value="0" Minimum="0" Maximum="512"
+                              SpinButtonPlacementMode="Inline"
+                              SmallChange="1" LargeChange="4"
+                              ValueChanged="VramBox_ValueChanged" />
+            </StackPanel>
+
+            <StackPanel Spacing="6" Grid.Column="1">
+              <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="SemiBold"
+                         Foreground="{ThemeResource OnSurfaceVariantBrush}">
+                <Run Text="Bandwidth" />
+                <Run Text=" (GB/s)" />
+              </TextBlock>
+              <muxc:NumberBox x:Name="BandwidthBox"
+                              Value="0" Minimum="0" Maximum="10000"
+                              SpinButtonPlacementMode="Inline"
+                              SmallChange="10" LargeChange="100"
+                              ValueChanged="BandwidthBox_ValueChanged" />
+            </StackPanel>
+          </Grid>
+        </StackPanel>
+      </Border>
+
+      <!-- ═══ CARD: Memory ═══ -->
+      <Border Background="{ThemeResource SurfaceBrush}"
+              CornerRadius="16" Padding="24,20"
+              BorderBrush="{ThemeResource OutlineVariantBrush}"
+              BorderThickness="1">
+        <StackPanel Spacing="18">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <FontIcon Glyph="&#xEDA2;" FontSize="18"
+                      FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                      Foreground="{ThemeResource PrimaryBrush}"
+                      VerticalAlignment="Center" />
+            <TextBlock Text="Memory"
+                       FontSize="16" FontWeight="SemiBold"
+                       VerticalAlignment="Center" />
+          </StackPanel>
+
+          <StackPanel Spacing="6">
+            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="SemiBold"
+                       Foreground="{ThemeResource OnSurfaceVariantBrush}">
+              <Run Text="System RAM" />
+              <Run Text=" (GB)" />
+            </TextBlock>
+            <muxc:NumberBox x:Name="RamBox"
+                            Value="16" Minimum="0" Maximum="1024"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="4" LargeChange="16"
+                            ValueChanged="RamBox_ValueChanged" />
+          </StackPanel>
+
+          <!-- Apple Silicon Unified Memory % -->
+          <StackPanel x:Name="UnifiedMemoryPanel" Spacing="6" Visibility="Collapsed">
+            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="SemiBold"
+                       Foreground="{ThemeResource OnSurfaceVariantBrush}">
+              <Run Text="Memory for Inference" />
+              <Run x:Name="UnifiedMemoryPercentText" Text=" (75%)" />
+            </TextBlock>
+            <Slider x:Name="UnifiedMemorySlider"
+                    Minimum="25" Maximum="95" Value="75"
+                    StepFrequency="5"
+                    ValueChanged="UnifiedMemorySlider_ValueChanged" />
+            <TextBlock Text="macOS reserves some memory. 75% is a safe default for inference."
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+
+      <!-- ═══ CARD: Inference Settings ═══ -->
+      <Border Background="{ThemeResource SurfaceBrush}"
+              CornerRadius="16" Padding="24,20"
+              BorderBrush="{ThemeResource OutlineVariantBrush}"
+              BorderThickness="1">
+        <StackPanel Spacing="14">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <FontIcon Glyph="&#xE737;" FontSize="18"
+                      FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                      Foreground="{ThemeResource PrimaryBrush}"
+                      VerticalAlignment="Center" />
+            <TextBlock Text="Inference Settings"
+                       FontSize="16" FontWeight="SemiBold"
+                       VerticalAlignment="Center" />
+          </StackPanel>
+
+          <StackPanel Spacing="6">
+            <TextBlock Text="Context Length"
+                       Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="SemiBold"
+                       Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+            <ComboBox x:Name="ContextComboBox"
+                      HorizontalAlignment="Stretch"
+                      SelectionChanged="ContextComboBox_SelectionChanged">
+              <ComboBoxItem Content="2K (2,048 tokens)" Tag="2048" />
+              <ComboBoxItem Content="4K (4,096 tokens)" Tag="4096" IsSelected="True" />
+              <ComboBoxItem Content="8K (8,192 tokens)" Tag="8192" />
+              <ComboBoxItem Content="16K (16,384 tokens)" Tag="16384" />
+              <ComboBoxItem Content="32K (32,768 tokens)" Tag="32768" />
+            </ComboBox>
+            <TextBlock Text="Longer context uses more VRAM for KV-cache. 4K is a good default."
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       Foreground="{ThemeResource OnSurfaceVariantBrush}" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+
+      <!-- ═══ CTA Button ═══ -->
+      <Button x:Name="CheckButton"
+              HorizontalAlignment="Stretch"
+              Height="52"
+              Click="CheckButton_Click"
+              Style="{ThemeResource FilledButtonStyle}"
+              Margin="0,4,0,0">
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <FontIcon Glyph="&#xE9D9;" FontSize="18"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}" />
+          <TextBlock Text="Check Compatibility"
+                     FontSize="16" FontWeight="SemiBold"
+                     VerticalAlignment="Center" />
+        </StackPanel>
+      </Button>
+
+    </StackPanel>
+  </ScrollViewer>
+</Page>
