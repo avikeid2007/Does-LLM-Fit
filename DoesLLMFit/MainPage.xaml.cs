@@ -136,9 +136,6 @@ public sealed partial class MainPage : Page
                 VramSlider.Value = gpu.VramGb;
                 BandwidthBox.Value = gpu.BandwidthGBs;
 
-                // Update the top-bar GPU label
-                TopBarGpuLabel.Text = $"GPU: {gpuName}  |  {gpu.VramGb} GB  |  {gpu.BandwidthGBs} GB/s";
-
                 if (_hardware.Architecture == ArchitectureType.AppleSilicon)
                 {
                     _hardware.SystemRamGb = gpu.VramGb;
