@@ -1,101 +1,70 @@
 using System.Reflection;
 using System.Text.Json;
-using Windows.Storage;
 
 namespace DoesLLMFit.Services;
 
 public class ModelCatalogService
 {
     private readonly ILogger<ModelCatalogService> _logger;
-    private readonly HttpClient _http = new();
+    private readonly HuggingFaceService _hfService;
     private List<LlmModel> _models = [];
     private List<GpuBandwidthEntry> _gpuDatabase = [];
 
-    private const string BaseUrl = "https://raw.githubusercontent.com/avikeid2007/DoesLLMFit/main/DoesLLMFit/Data/";
-    private const string ModelsFileName = "models.json";
-    private const string GpuFileName = "gpu-bandwidth.json";
-
-    public ModelCatalogService(ILogger<ModelCatalogService> logger)
+    public ModelCatalogService(ILogger<ModelCatalogService> logger, HuggingFaceService hfService)
     {
         _logger = logger;
+        _hfService = hfService;
     }
 
     public IReadOnlyList<LlmModel> Models => _models;
     public IReadOnlyList<GpuBandwidthEntry> GpuDatabase => _gpuDatabase;
+    public bool HuggingFaceLoaded { get; private set; }
 
     public async Task InitializeAsync()
     {
-        _models = await LoadJsonAsync<List<LlmModel>>(ModelsFileName, "DoesLLMFit.Data.models.json") ?? [];
-        _gpuDatabase = await LoadJsonAsync<List<GpuBandwidthEntry>>(GpuFileName, "DoesLLMFit.Data.gpu-bandwidth.json") ?? [];
-        _logger.LogInformation("Loaded {ModelCount} models and {GpuCount} GPU entries", _models.Count, _gpuDatabase.Count);
+        // Load curated + GPU data from embedded resources (instant)
+        var curatedTask = LoadEmbeddedJsonAsync<List<LlmModel>>("DoesLLMFit.Data.models.json");
+        var gpuTask = LoadEmbeddedJsonAsync<List<GpuBandwidthEntry>>("DoesLLMFit.Data.gpu-bandwidth.json");
+        await Task.WhenAll(curatedTask, gpuTask);
+
+        var curated = curatedTask.Result ?? [];
+        _gpuDatabase = gpuTask.Result ?? [];
+
+        // Mark all curated models
+        _models = curated.Select(m => m with { Source = ModelSource.Curated }).ToList();
+        _logger.LogInformation("Loaded {ModelCount} curated models and {GpuCount} GPU entries", _models.Count, _gpuDatabase.Count);
     }
 
-    /// <summary>Try: GitHub raw → local cache → embedded resource.</summary>
-    private async Task<T?> LoadJsonAsync<T>(string fileName, string embeddedName)
+    /// <summary>
+    /// Loads HuggingFace models in the background and merges them into the catalog.
+    /// Call after InitializeAsync so curated models are immediately available.
+    /// </summary>
+    public async Task LoadHuggingFaceModelsAsync()
     {
-        // 1. Try remote
-        var remote = await TryFetchRemoteAsync<T>(fileName);
-        if (remote is not null)
-        {
-            await SaveToCacheAsync(fileName, remote);
-            return remote;
-        }
+        var hfModels = await _hfService.FetchModelsAsync();
 
-        // 2. Try local cache
-        var cached = await TryLoadCacheAsync<T>(fileName);
-        if (cached is not null)
+        if (hfModels.Count > 0)
         {
-            _logger.LogInformation("Using cached {File}", fileName);
-            return cached;
-        }
-
-        // 3. Fallback to embedded
-        _logger.LogInformation("Using embedded {File}", fileName);
-        return await LoadEmbeddedJsonAsync<T>(embeddedName);
-    }
-
-    private async Task<T?> TryFetchRemoteAsync<T>(string fileName)
-    {
-        try
-        {
-            var url = BaseUrl + fileName;
-            using var response = await _http.GetAsync(url).ConfigureAwait(false);
-            if (!response.IsSuccessStatusCode) return default;
-
-            var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            var result = JsonSerializer.Deserialize<T>(json);
-            _logger.LogInformation("Fetched latest {File} from GitHub", fileName);
-            return result;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogWarning(ex, "Could not fetch remote {File}, will use cache/embedded", fileName);
-            return default;
+            MergeHuggingFaceModels(hfModels);
+            HuggingFaceLoaded = true;
         }
     }
 
-    private static async Task SaveToCacheAsync<T>(string fileName, T data)
+    private void MergeHuggingFaceModels(List<LlmModel> hfModels)
     {
-        try
-        {
-            var folder = ApplicationData.Current.LocalFolder;
-            var file = await folder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-            var json = JsonSerializer.Serialize(data);
-            await FileIO.WriteTextAsync(file, json);
-        }
-        catch { /* non-critical */ }
-    }
+        // Remove any previously merged HF models to avoid duplicates on refresh
+        _models.RemoveAll(m => m.Source == ModelSource.HuggingFace);
 
-    private static async Task<T?> TryLoadCacheAsync<T>(string fileName)
-    {
-        try
-        {
-            var folder = ApplicationData.Current.LocalFolder;
-            var file = await folder.GetFileAsync(fileName);
-            var json = await FileIO.ReadTextAsync(file);
-            return JsonSerializer.Deserialize<T>(json);
-        }
-        catch { return default; }
+        // Avoid adding HF models that duplicate curated ones (by HuggingFace ID)
+        var curatedIds = _models
+            .Where(m => !string.IsNullOrEmpty(m.HuggingFaceId))
+            .Select(m => m.HuggingFaceId)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        var unique = hfModels.Where(m => !curatedIds.Contains(m.HuggingFaceId)).ToList();
+        _models.AddRange(unique);
+
+        _logger.LogInformation("Merged {Count} unique HuggingFace models (total: {Total})", unique.Count, _models.Count);
     }
 
     public IReadOnlyList<LlmModel> GetModelsByCategory(string category)

@@ -30,4 +30,20 @@ public record LlmModel
 
     [JsonPropertyName("supported_quants")]
     public IReadOnlyList<string> SupportedQuants { get; init; } = [];
+
+    [JsonPropertyName("pipeline_tag")]
+    public string PipelineTag { get; init; } = "text-generation";
+
+    [JsonPropertyName("downloads")]
+    public long Downloads { get; init; }
+
+    /// <summary>Curated = from static JSON, HuggingFace = fetched from HF API.</summary>
+    [JsonIgnore]
+    public ModelSource Source { get; init; } = ModelSource.Curated;
+}
+
+public enum ModelSource
+{
+    Curated,
+    HuggingFace
 }

@@ -1,4 +1,3 @@
-using DoesLLMFit.Helpers;
 using DoesLLMFit.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Markup;
@@ -11,9 +10,6 @@ public sealed partial class MainPage : Page
     public MainPageViewModel ViewModel { get; }
 
     private bool _initialized;
-    private bool _isUpdatingOrgCombo;
-    private bool _orgComboRebuildPending;
-    private bool _gpuComboRebuildPending;
 
     public MainPage()
     {
@@ -22,38 +18,11 @@ public sealed partial class MainPage : Page
         Loaded += MainPage_Loaded;
 
         // GPU ComboBox needs brand SVG icons built in code-behind (XamlReader.Load)
-        ViewModel.GpuItems.CollectionChanged += (_, _) =>
-        {
-            if (!_gpuComboRebuildPending)
-            {
-                _gpuComboRebuildPending = true;
-                DispatcherQueue.TryEnqueue(() =>
-                {
-                    _gpuComboRebuildPending = false;
-                    PopulateGpuComboBox();
-                });
-            }
-        };
-        ViewModel.OrganizationList.CollectionChanged += (_, _) =>
-        {
-            // Debounce: CollectionChanged fires for every Clear/Add;
-            // dispatch a single rebuild after the batch completes.
-            if (!_orgComboRebuildPending)
-            {
-                _orgComboRebuildPending = true;
-                DispatcherQueue.TryEnqueue(() =>
-                {
-                    _orgComboRebuildPending = false;
-                    PopulateOrgComboBox();
-                });
-            }
-        };
+        ViewModel.GpuItems.CollectionChanged += (_, _) => PopulateGpuComboBox();
         ViewModel.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName == nameof(ViewModel.SelectedGpu))
                 SyncGpuComboBoxSelection();
-            else if (e.PropertyName == nameof(ViewModel.SelectedOrganization))
-                SyncOrgComboBoxSelection();
         };
     }
 
@@ -164,80 +133,6 @@ public sealed partial class MainPage : Page
         if (CategoryComboBox.SelectedItem is ComboBoxItem item && item.Tag is string tag)
         {
             ViewModel.SelectedCategory = tag;
-        }
-    }
-
-    // ─── Organization ComboBox with SVG logos ──────────────
-
-    private void PopulateOrgComboBox()
-    {
-        _isUpdatingOrgCombo = true;
-        try
-        {
-            OrgComboBox.Items.Clear();
-            foreach (var orgName in ViewModel.OrganizationList)
-            {
-                var sp = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 8 };
-
-                if (orgName != "All")
-                {
-                    var (pathData, vbSize, brandColor) = OrgLogoHelper.GetOrgLogo(orgName);
-                    var viewbox = new Viewbox { Width = 16, Height = 16, VerticalAlignment = VerticalAlignment.Center };
-                    var canvas = new Canvas { Width = vbSize, Height = vbSize };
-                    var icon = (Microsoft.UI.Xaml.Shapes.Path)XamlReader.Load(
-                        $"<Path xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' Data='{pathData}' />");
-                    icon.Fill = new Microsoft.UI.Xaml.Media.SolidColorBrush(brandColor);
-                    canvas.Children.Add(icon);
-                    viewbox.Child = canvas;
-                    sp.Children.Add(viewbox);
-                }
-
-                sp.Children.Add(new TextBlock
-                {
-                    Text = orgName == "All" ? "All Organizations" : OrgLogoHelper.GetDisplayName(orgName),
-                    VerticalAlignment = VerticalAlignment.Center,
-                    Foreground = new Microsoft.UI.Xaml.Media.SolidColorBrush(Color.FromArgb(230, 232, 237, 243))
-                });
-
-                OrgComboBox.Items.Add(new ComboBoxItem { Content = sp, Tag = orgName });
-            }
-            SyncOrgComboBoxSelection();
-        }
-        finally
-        {
-            _isUpdatingOrgCombo = false;
-        }
-    }
-
-    private void SyncOrgComboBoxSelection()
-    {
-        _isUpdatingOrgCombo = true;
-        try
-        {
-            var target = ViewModel.SelectedOrganization ?? "All";
-            foreach (ComboBoxItem item in OrgComboBox.Items)
-            {
-                if (item.Tag is string tag && tag == target)
-                {
-                    OrgComboBox.SelectedItem = item;
-                    return;
-                }
-            }
-            if (OrgComboBox.Items.Count > 0)
-                OrgComboBox.SelectedIndex = 0;
-        }
-        finally
-        {
-            _isUpdatingOrgCombo = false;
-        }
-    }
-
-    private void OrgComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (_isUpdatingOrgCombo) return;
-        if (OrgComboBox.SelectedItem is ComboBoxItem item && item.Tag is string tag)
-        {
-            ViewModel.SelectedOrganization = tag;
         }
     }
 }

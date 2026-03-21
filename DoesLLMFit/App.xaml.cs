@@ -66,8 +66,10 @@ public partial class App : Application
                 )
                 .ConfigureServices((context, services) =>
                 {
+                    services.AddSingleton<Services.HuggingFaceService>();
                     services.AddSingleton<Services.ModelCatalogService>();
                     services.AddSingleton<Services.CompatibilityCalculator>();
+                    services.AddTransient<ViewModels.MainPageViewModel>();
                     services.AddTransient<ViewModels.HardwareSetupViewModel>();
                     services.AddTransient<ViewModels.ResultsViewModel>();
                     services.AddTransient<ViewModels.ModelBrowserViewModel>();

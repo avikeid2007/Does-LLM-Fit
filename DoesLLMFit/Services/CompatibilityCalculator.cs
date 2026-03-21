@@ -5,34 +5,55 @@ public class CompatibilityCalculator
     private const double OverheadBufferGb = 0.5; // 500MB overhead for runtime/framework
 
     /// <summary>
+    /// Returns an overhead multiplier based on the model's pipeline type.
+    /// LLM: 1.15 (KV cache + activations), Diffusion: 1.25 (VAE + text encoder),
+    /// Multimodal: 1.20 (vision encoder), Audio/ASR: 1.10.
+    /// </summary>
+    private static double GetOverheadMultiplier(string pipelineTag) => pipelineTag switch
+    {
+        "text-to-image" or "image-to-image" => 1.25,
+        "text-to-video" => 1.30,
+        "image-text-to-text" or "any-to-any" => 1.20,
+        "text-to-audio" or "automatic-speech-recognition" or "text-to-speech" => 1.10,
+        _ => 1.0, // LLMs use explicit KV cache calculation already
+    };
+
+    /// <summary>
     /// Calculates estimated VRAM usage for a model at a given quantization and context length.
-    /// Formula: VRAM = (Params × BitsPerWeight / 8) + KV-cache + Overhead
+    /// For LLMs: VRAM = (Params x BitsPerWeight / 8) + KV-cache + Overhead
+    /// For non-LLMs: VRAM = (Params x BitsPerWeight / 8) x OverheadMultiplier + Overhead
     /// </summary>
     public double CalculateVramGb(LlmModel model, QuantType quant, int contextLength)
     {
         double bitsPerWeight = QuantInfo.GetBitsPerWeight(quant);
-
-        // Model weights in GB
         double modelWeightsGb = model.ParametersB * bitsPerWeight / 8.0;
 
-        // KV-cache estimation
-        // KV cache = 2 × NumLayers × KvHeads × HeadDim × ContextLength × BytesPerElement
-        // For most quants, KV cache uses FP16 (2 bytes); for Q8 and above, also 2 bytes
-        double kvBytesPerElement = quant >= QuantType.Q8_0 ? 2.0 : 2.0;
-        double kvCacheGb = 0;
-        if (model.NumLayers > 0 && model.KvHeads > 0 && model.HeadDim > 0)
+        bool isLlm = model.PipelineTag is "text-generation" or "";
+        if (isLlm)
         {
-            kvCacheGb = 2.0 * model.NumLayers * model.KvHeads * model.HeadDim
-                        * contextLength * kvBytesPerElement
-                        / (1024.0 * 1024.0 * 1024.0);
+            // KV-cache estimation for LLMs
+            double kvBytesPerElement = 2.0;
+            double kvCacheGb = 0;
+            if (model.NumLayers > 0 && model.KvHeads > 0 && model.HeadDim > 0)
+            {
+                kvCacheGb = 2.0 * model.NumLayers * model.KvHeads * model.HeadDim
+                            * contextLength * kvBytesPerElement
+                            / (1024.0 * 1024.0 * 1024.0);
+            }
+            else
+            {
+                // Fallback: estimate KV cache as ~10-15% of model size per 4K context
+                kvCacheGb = modelWeightsGb * 0.12 * (contextLength / 4096.0);
+            }
+
+            return modelWeightsGb + kvCacheGb + OverheadBufferGb;
         }
         else
         {
-            // Fallback: estimate KV cache as ~10-15% of model size per 4K context
-            kvCacheGb = modelWeightsGb * 0.12 * (contextLength / 4096.0);
+            // Non-LLM models (diffusion, audio, multimodal): use overhead multiplier
+            double multiplier = GetOverheadMultiplier(model.PipelineTag);
+            return modelWeightsGb * multiplier + OverheadBufferGb;
         }
-
-        return modelWeightsGb + kvCacheGb + OverheadBufferGb;
     }
 
     /// <summary>
@@ -139,15 +160,28 @@ public class CompatibilityCalculator
         HardwareProfile hardware)
     {
         var quantName = QuantInfo.GetDisplayName(quant);
+        var isLlm = model.PipelineTag is "text-generation" or "";
         var lines = new List<string>
         {
             $"{model.Name} at {quantName} quantization:",
             $"  Model weights: {model.ParametersB:F1}B params × {QuantInfo.GetBitsPerWeight(quant):F1} bits/weight = {model.ParametersB * QuantInfo.GetBitsPerWeight(quant) / 8.0:F1} GB",
-            $"  + KV cache for {hardware.ContextLength:N0} context tokens",
+        };
+
+        if (isLlm)
+        {
+            lines.Add($"  + KV cache for {hardware.ContextLength:N0} context tokens");
+        }
+        else
+        {
+            var multiplier = GetOverheadMultiplier(model.PipelineTag);
+            lines.Add($"  × {multiplier:F2} overhead ({model.PipelineTag})");
+        }
+
+        lines.AddRange([
             $"  + 0.5 GB runtime overhead",
             $"  = {estimatedVram:F1} GB estimated total",
             $"  Available: {availableVram:F1} GB"
-        };
+        ]);
 
         if (hardware.Architecture == ArchitectureType.AppleSilicon)
         {

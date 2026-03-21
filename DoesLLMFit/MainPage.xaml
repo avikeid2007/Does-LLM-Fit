@@ -2,14 +2,21 @@
     x:Class="DoesLLMFit.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="using:DoesLLMFit.Converters"
     xmlns:local="using:DoesLLMFit"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:um="using:Uno.Material"
     xmlns:utu="using:Uno.Toolkit.UI"
+    xmlns:vm="using:DoesLLMFit.ViewModels"
     Background="#FF0D1117">
 
+    <Page.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVis" />
+        <conv:ColorToBrushConverter x:Key="ColorToBrush" />
+        <conv:ColorToAlphaBrushConverter x:Key="ColorToAlphaBrush" />
+    </Page.Resources>
+
     <Grid>
-        <!--  Full-page background gradient  -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Offset="0.0" Color="#0D1117" />
@@ -23,48 +30,10 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!--  ═══ TOP BAR ═══  -->
-        <!--
-        <Border
-            Grid.Row="0"
-            Padding="10"
-            Background="#0AFFFFFF">
-            <Grid>
-                <StackPanel
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal"
-                    Spacing="10">
-                    <Image
-                        Width="44"
-                        VerticalAlignment="Center"
-                        Source="ms-appx:///Assets/logo.png" />
-                    <TextBlock
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Foreground="#88AABBCC">
-                        <Run Text="Does" /><Run Foreground="#44A4FF" Text="LLM" /><Run Text="Fit" />
-                    </TextBlock>
-                </StackPanel>
-        -->
-        <!--  Right side: selected GPU label  -->
-        <!--
-                <TextBlock
-                    x:Name="TopBarGpuLabel"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    FontSize="12"
-                    Foreground="#4490A0B0"
-                    Text="" />
-            </Grid>
-        </Border>-->
-
         <ScrollViewer Grid.Row="1">
             <StackPanel HorizontalAlignment="Stretch" Spacing="0">
 
-                <!--  ═══════════════════════════════════════════════  -->
-                <!--  HERO HEADER  -->
-                <!--  ═══════════════════════════════════════════════  -->
+                <!--  ═══ HERO HEADER ═══  -->
                 <Border Padding="0,24,0,20">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -73,33 +42,18 @@
                             <GradientStop Offset="1.0" Color="#0A1628" />
                         </LinearGradientBrush>
                     </Border.Background>
-
                     <StackPanel HorizontalAlignment="Center" Spacing="12">
-                        <!--  Logo row  -->
                         <StackPanel
                             HorizontalAlignment="Center"
                             Orientation="Horizontal"
                             Spacing="16">
-                            <!--  App logo with glow ring  -->
                             <Grid Width="48" Height="48">
-
                                 <Image
                                     Width="100"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Source="ms-appx:///Assets/logo.png" />
-                                <!--<Border
-                                    Width="42"
-                                    Height="42"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    BorderBrush="#3044A4FF"
-                                    BorderThickness="2"
-                                    CornerRadius="21">
-
-                                </Border>-->
                             </Grid>
-                            <!--  App name  -->
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock
                                     FontSize="56"
@@ -119,8 +73,6 @@
                                     Text="Fit?" />
                             </StackPanel>
                         </StackPanel>
-
-                        <!--  Tagline  -->
                         <TextBlock
                             HorizontalAlignment="Center"
                             FontSize="14"
@@ -129,9 +81,7 @@
                     </StackPanel>
                 </Border>
 
-                <!--  ═══════════════════════════════════════════════  -->
-                <!--  HARDWARE INPUT CARD  -->
-                <!--  ═══════════════════════════════════════════════  -->
+                <!--  ═══ HARDWARE INPUT CARD ═══  -->
                 <Border
                     Margin="40,-16,40,0"
                     Padding="0"
@@ -139,8 +89,6 @@
                     BorderBrush="#18FFFFFF"
                     BorderThickness="1"
                     CornerRadius="24">
-
-                    <!--  Inner glow accent at top  -->
                     <Grid>
                         <Border
                             Height="3"
@@ -163,7 +111,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <!--  Column 0: Apple Silicon Toggle  -->
+                                <!--  Apple Silicon Toggle  -->
                                 <StackPanel
                                     Grid.Column="0"
                                     HorizontalAlignment="Center"
@@ -173,13 +121,11 @@
                                         Width="100"
                                         Height="100"
                                         HorizontalAlignment="Center">
-                                        <!--  Outer ring glow  -->
                                         <Border
                                             Width="100"
                                             Height="100"
                                             Background="#0844A4FF"
                                             CornerRadius="50" />
-                                        <!--  Main ring  -->
                                         <Border
                                             Width="92"
                                             Height="92"
@@ -209,9 +155,9 @@
                                     <ToggleSwitch
                                         x:Name="AppleSiliconToggle"
                                         HorizontalAlignment="Center"
+                                        IsOn="{x:Bind ViewModel.IsAppleSilicon, Mode=TwoWay}"
                                         OffContent="OFF"
-                                        OnContent="ON"
-                                        Toggled="AppleSiliconToggle_Toggled" />
+                                        OnContent="ON" />
                                     <TextBlock
                                         HorizontalAlignment="Center"
                                         FontSize="11"
@@ -219,23 +165,21 @@
                                         Text="Unified memory" />
                                 </StackPanel>
 
-                                <!--  Column 1: VRAM section with slider  -->
+                                <!--  VRAM section  -->
                                 <StackPanel
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
                                     Spacing="10">
-                                    <!--  VRAM large number + GB suffix  -->
                                     <StackPanel
                                         HorizontalAlignment="Center"
                                         Orientation="Horizontal"
                                         Spacing="6">
                                         <TextBlock
-                                            x:Name="VramDisplayText"
                                             VerticalAlignment="Bottom"
                                             FontSize="42"
                                             FontWeight="Bold"
                                             Foreground="#E8EDF3"
-                                            Text="12" />
+                                            Text="{x:Bind ViewModel.VramDisplayText, Mode=OneWay}" />
                                         <TextBlock
                                             Margin="0,0,0,8"
                                             VerticalAlignment="Bottom"
@@ -244,34 +188,26 @@
                                             Foreground="#5590A0B0"
                                             Text="GB" />
                                     </StackPanel>
-
-                                    <!--  VRAM Slider  -->
                                     <Grid>
-                                        <!--  Custom track background  -->
                                         <Border
                                             Height="6"
                                             VerticalAlignment="Center"
                                             Background="#20FFFFFF"
                                             CornerRadius="3" />
                                         <Slider
-                                            x:Name="VramSlider"
                                             Foreground="#44A4FF"
                                             Maximum="128"
                                             Minimum="0"
                                             StepFrequency="1"
-                                            ValueChanged="VramSlider_ValueChanged"
-                                            Value="12" />
+                                            Value="{x:Bind ViewModel.VramGb, Mode=TwoWay}" />
                                     </Grid>
-
-                                    <!--  VRAM detail text  -->
                                     <StackPanel HorizontalAlignment="Center" Spacing="3">
                                         <TextBlock
-                                            x:Name="VramLabelText"
                                             HorizontalAlignment="Center"
                                             FontSize="14"
                                             FontWeight="SemiBold"
                                             Foreground="#8899AABB"
-                                            Text="12 GB VRAM" />
+                                            Text="{x:Bind ViewModel.VramLabelText, Mode=OneWay}" />
                                         <StackPanel
                                             HorizontalAlignment="Center"
                                             Orientation="Horizontal"
@@ -283,14 +219,11 @@
                                                 Foreground="#4490A0B0"
                                                 Glyph="&#xE835;" />
                                             <TextBlock
-                                                x:Name="VramTypeText"
                                                 FontSize="11"
                                                 Foreground="#4490A0B0"
-                                                Text="Dedicated GPU VRAM" />
+                                                Text="{x:Bind ViewModel.VramTypeText, Mode=OneWay}" />
                                         </StackPanel>
                                     </StackPanel>
-
-                                    <!--  GPU ComboBox  -->
                                     <ComboBox
                                         x:Name="GpuComboBox"
                                         HorizontalAlignment="Stretch"
@@ -298,7 +231,7 @@
                                         SelectionChanged="GpuComboBox_SelectionChanged" />
                                 </StackPanel>
 
-                                <!--  Column 2: System RAM circular gauge  -->
+                                <!--  System RAM  -->
                                 <StackPanel
                                     Grid.Column="2"
                                     HorizontalAlignment="Center"
@@ -308,13 +241,11 @@
                                         Width="100"
                                         Height="100"
                                         HorizontalAlignment="Center">
-                                        <!--  Outer ring glow  -->
                                         <Border
                                             Width="100"
                                             Height="100"
                                             Background="#0844A4FF"
                                             CornerRadius="50" />
-                                        <!--  Main ring  -->
                                         <Border
                                             Width="92"
                                             Height="92"
@@ -325,13 +256,12 @@
                                             BorderThickness="3"
                                             CornerRadius="46">
                                             <TextBlock
-                                                x:Name="RamDisplayText"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
                                                 FontSize="32"
                                                 FontWeight="Bold"
                                                 Foreground="#E8EDF3"
-                                                Text="32" />
+                                                Text="{x:Bind ViewModel.RamDisplayText, Mode=OneWay}" />
                                         </Border>
                                     </Grid>
                                     <StackPanel
@@ -351,14 +281,12 @@
                                             Text="System RAM (GB)" />
                                     </StackPanel>
                                     <muxc:NumberBox
-                                        x:Name="RamBox"
                                         Width="120"
                                         HorizontalAlignment="Center"
                                         Maximum="1024"
                                         Minimum="1"
                                         SpinButtonPlacementMode="Compact"
-                                        ValueChanged="RamBox_ValueChanged"
-                                        Value="32" />
+                                        Value="{x:Bind ViewModel.SystemRamGb, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
 
@@ -371,7 +299,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition x:Name="UnifiedMemoryColumn" Width="0" />
+                                        <ColumnDefinition x:Name="UnifiedMemoryColumn" Width="{x:Bind ViewModel.UnifiedMemoryColumnWidth, Mode=OneWay}" />
                                     </Grid.ColumnDefinitions>
 
                                     <StackPanel Grid.Column="0" Spacing="4">
@@ -388,14 +316,12 @@
                                                 Text="Bandwidth (GB/s)" />
                                         </StackPanel>
                                         <muxc:NumberBox
-                                            x:Name="BandwidthBox"
                                             MinHeight="32"
                                             HorizontalAlignment="Stretch"
                                             Maximum="10000"
                                             Minimum="0"
                                             SpinButtonPlacementMode="Compact"
-                                            ValueChanged="BandwidthBox_ValueChanged"
-                                            Value="0" />
+                                            Value="{x:Bind ViewModel.MemoryBandwidthGBs, Mode=TwoWay}" />
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="1" Spacing="4">
@@ -428,10 +354,9 @@
                                     </StackPanel>
 
                                     <StackPanel
-                                        x:Name="UnifiedMemoryPanel"
                                         Grid.Column="2"
                                         Spacing="4"
-                                        Visibility="Collapsed">
+                                        Visibility="{x:Bind ViewModel.ShowUnifiedMemory, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                                         <StackPanel Orientation="Horizontal" Spacing="6">
                                             <FontIcon
                                                 VerticalAlignment="Center"
@@ -441,17 +366,15 @@
                                                 Glyph="&#xE946;" />
                                             <TextBlock FontSize="11" Foreground="#5590A0B0">
                                                 <Run Text="Inference Memory " />
-                                                <Run x:Name="UnifiedMemoryPercentText" Text="(75%)" />
+                                                <Run Text="{x:Bind ViewModel.UnifiedMemoryPercentText, Mode=OneWay}" />
                                             </TextBlock>
                                         </StackPanel>
                                         <Slider
-                                            x:Name="UnifiedMemorySlider"
                                             HorizontalAlignment="Stretch"
                                             Maximum="95"
                                             Minimum="25"
                                             StepFrequency="5"
-                                            ValueChanged="UnifiedMemorySlider_ValueChanged"
-                                            Value="75" />
+                                            Value="{x:Bind ViewModel.UnifiedMemoryPercent, Mode=TwoWay}" />
                                     </StackPanel>
                                 </Grid>
                             </Border>
@@ -459,15 +382,12 @@
                     </Grid>
                 </Border>
 
-                <!--  ═══════════════════════════════════════════════  -->
-                <!--  "Does It Fit?" CTA Button  -->
-                <!--  ═══════════════════════════════════════════════  -->
+                <!--  ═══ CTA BUTTON ═══  -->
                 <Button
-                    x:Name="CheckButton"
                     Margin="0,18,0,0"
                     Padding="52,16"
                     HorizontalAlignment="Center"
-                    Click="CheckButton_Click"
+                    Command="{x:Bind ViewModel.CheckFitCommand}"
                     CornerRadius="28">
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -490,16 +410,113 @@
                     </StackPanel>
                 </Button>
 
-                <!--  ═══════════════════════════════════════════════  -->
-                <!--  STATUS SUMMARY (hidden until results)  -->
-                <!--  ═══════════════════════════════════════════════  -->
+                <!--  ═══ HF LOADING INDICATOR ═══  -->
                 <StackPanel
-                    x:Name="SummaryPanel"
+                    Margin="0,6,0,0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    Spacing="8"
+                    Visibility="{x:Bind ViewModel.IsLoadingHuggingFace, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                    <muxc:ProgressRing
+                        Width="16"
+                        Height="16"
+                        Foreground="#44A4FF"
+                        IsActive="True" />
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        Foreground="#5590A0B0"
+                        Text="{x:Bind ViewModel.HfLoadingText, Mode=OneWay}" />
+                </StackPanel>
+
+                <!--  ═══ FILTER BAR (visible after results) ═══  -->
+                <Border
+                    Margin="40,14,40,0"
+                    Padding="14,10"
+                    Background="#0AFFFFFF"
+                    CornerRadius="16"
+                    Visibility="{x:Bind ViewModel.HasResults, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                    <Grid ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  Search  -->
+                        <TextBox
+                            Grid.Column="0"
+                            MinHeight="32"
+                            VerticalAlignment="Center"
+                            PlaceholderText="Search models..."
+                            Text="{x:Bind ViewModel.SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Category  -->
+                        <ComboBox
+                            x:Name="CategoryComboBox"
+                            Grid.Column="1"
+                            MinWidth="180"
+                            MinHeight="32"
+                            VerticalAlignment="Stretch"
+                            SelectionChanged="CategoryComboBox_SelectionChanged">
+                            <ComboBoxItem
+                                Content="All Categories"
+                                IsSelected="True"
+                                Tag="All" />
+                            <ComboBoxItem Content="Text Generation" Tag="Text Generation" />
+                            <ComboBoxItem Content="Multimodal / Vision" Tag="Multimodal" />
+                            <ComboBoxItem Content="Image Generation" Tag="Image Generation" />
+                            <ComboBoxItem Content="Video Generation" Tag="Video Generation" />
+                            <ComboBoxItem Content="Audio Generation" Tag="Audio Generation" />
+                            <ComboBoxItem Content="Speech Recognition" Tag="Speech Recognition" />
+                            <ComboBoxItem Content="Text to Speech" Tag="Text to Speech" />
+                            <ComboBoxItem Content="Coding" Tag="Coding" />
+                            <ComboBoxItem Content="Reasoning" Tag="Reasoning" />
+                        </ComboBox>
+
+                        <!--  Organization (populated with logos in code-behind)  -->
+                        <ComboBox
+                            x:Name="OrgComboBox"
+                            Grid.Column="2"
+                            MinWidth="180"
+                            MinHeight="32"
+                            VerticalAlignment="Stretch"
+                            PlaceholderText="All Organizations"
+                            SelectionChanged="OrgComboBox_SelectionChanged" />
+
+                        <!--  HF toggle  -->
+                        <StackPanel
+                            Grid.Column="3"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="6">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="13"
+                                Text="&#x1F917;" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="11"
+                                Foreground="#5590A0B0"
+                                Text="HuggingFace" />
+                            <ToggleSwitch
+                                MinWidth="0"
+                                VerticalAlignment="Center"
+                                IsOn="{x:Bind ViewModel.IncludeHuggingFace, Mode=TwoWay}"
+                                OffContent=""
+                                OnContent="" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!--  ═══ STATUS SUMMARY ═══  -->
+                <StackPanel
                     Margin="32,18,32,0"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal"
                     Spacing="14"
-                    Visibility="Collapsed">
+                    Visibility="{x:Bind ViewModel.HasResults, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                     <!--  Green  -->
                     <Border
                         MinWidth="140"
@@ -530,11 +547,10 @@
                             </Border>
                             <StackPanel Grid.Column="1" Spacing="0">
                                 <TextBlock
-                                    x:Name="GreenCountText"
                                     FontSize="26"
                                     FontWeight="Bold"
                                     Foreground="#4CAF50"
-                                    Text="0" />
+                                    Text="{x:Bind ViewModel.GreenCount, Mode=OneWay}" />
                                 <TextBlock
                                     FontSize="11"
                                     Foreground="#664CAF50"
@@ -572,11 +588,10 @@
                             </Border>
                             <StackPanel Grid.Column="1" Spacing="0">
                                 <TextBlock
-                                    x:Name="YellowCountText"
                                     FontSize="26"
                                     FontWeight="Bold"
                                     Foreground="#FFC107"
-                                    Text="0" />
+                                    Text="{x:Bind ViewModel.YellowCount, Mode=OneWay}" />
                                 <TextBlock
                                     FontSize="11"
                                     Foreground="#66FFC107"
@@ -614,11 +629,10 @@
                             </Border>
                             <StackPanel Grid.Column="1" Spacing="0">
                                 <TextBlock
-                                    x:Name="RedCountText"
                                     FontSize="26"
                                     FontWeight="Bold"
                                     Foreground="#F44336"
-                                    Text="0" />
+                                    Text="{x:Bind ViewModel.RedCount, Mode=OneWay}" />
                                 <TextBlock
                                     FontSize="11"
                                     Foreground="#66F44336"
@@ -628,15 +642,12 @@
                     </Border>
                 </StackPanel>
 
-                <!--  ═══════════════════════════════════════════════  -->
-                <!--  SECTION HEADER for results  -->
-                <!--  ═══════════════════════════════════════════════  -->
+                <!--  ═══ RESULTS HEADER ═══  -->
                 <StackPanel
-                    x:Name="ResultsHeader"
                     Margin="44,14,44,0"
                     Orientation="Horizontal"
                     Spacing="8"
-                    Visibility="Collapsed">
+                    Visibility="{x:Bind ViewModel.HasResults, Mode=OneWay, Converter={StaticResource BoolToVis}}">
                     <Border
                         Width="4"
                         Height="18"
@@ -644,44 +655,234 @@
                         Background="#44A4FF"
                         CornerRadius="2" />
                     <TextBlock
-                        x:Name="ResultsHeaderText"
                         VerticalAlignment="Center"
                         FontSize="16"
                         FontWeight="SemiBold"
                         Foreground="#8899AABB"
                         Text="Model Results" />
                     <TextBlock
-                        x:Name="ResultsCountText"
                         Margin="8,0,0,0"
                         VerticalAlignment="Center"
                         FontSize="13"
                         Foreground="#4490A0B0"
-                        Text="" />
+                        Text="{x:Bind ViewModel.ResultsCountText, Mode=OneWay}" />
                 </StackPanel>
 
-                <!--  ═══════════════════════════════════════════════  -->
-                <!--  MODEL RESULT CARDS (horizontal scroll)  -->
-                <!--  ═══════════════════════════════════════════════  -->
-                <ScrollViewer
-                    x:Name="ModelCardsScroller"
-                    Margin="0,10,0,24"
-                    HorizontalScrollBarVisibility="Auto"
-                    HorizontalScrollMode="Enabled"
-                    VerticalScrollBarVisibility="Disabled"
-                    Visibility="Collapsed">
-                    <StackPanel
-                        x:Name="ModelCardsPanel"
-                        Padding="40,0,40,12"
-                        Orientation="Horizontal"
-                        Spacing="16" />
-                </ScrollViewer>
+                <!--  ═══ MODEL RESULT CARDS (GridView) ═══  -->
+                <GridView
+                    Margin="40,10,40,24"
+                    ItemsSource="{x:Bind ViewModel.ModelCards, Mode=OneWay}"
+                    SelectionMode="None"
+                    Visibility="{x:Bind ViewModel.HasResults, Mode=OneWay, Converter={StaticResource BoolToVis}}">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid
+                                ItemHeight="310"
+                                ItemWidth="290"
+                                Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="4" />
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:ModelCardViewModel">
+                            <Border
+                                Background="{x:Bind CardBackground, Converter={StaticResource ColorToBrush}}"
+                                BorderBrush="{x:Bind StatusColor, Converter={StaticResource ColorToAlphaBrush}}"
+                                BorderThickness="1"
+                                CornerRadius="18">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="4" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <!--  Accent bar  -->
+                                    <Border
+                                        Grid.Row="0"
+                                        Background="{x:Bind StatusColor, Converter={StaticResource ColorToAlphaBrush}, ConverterParameter=180}"
+                                        CornerRadius="18,18,0,0" />
 
-                <!--  Empty state  -->
+                                    <StackPanel
+                                        Grid.Row="1"
+                                        Padding="20,16,20,18"
+                                        Spacing="8">
+                                        <!--  Name + Badge  -->
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock
+                                                Grid.Column="0"
+                                                VerticalAlignment="Center"
+                                                FontSize="15"
+                                                FontWeight="Bold"
+                                                Foreground="#F0E8EDF3"
+                                                Text="{x:Bind ModelName}"
+                                                TextTrimming="CharacterEllipsis" />
+                                            <Border
+                                                Grid.Column="1"
+                                                Width="26"
+                                                Height="26"
+                                                VerticalAlignment="Center"
+                                                Background="{x:Bind StatusColor, Converter={StaticResource ColorToAlphaBrush}}"
+                                                CornerRadius="13">
+                                                <FontIcon
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="Segoe MDL2 Assets"
+                                                    FontSize="12"
+                                                    Foreground="{x:Bind StatusColor, Converter={StaticResource ColorToBrush}}"
+                                                    Glyph="{x:Bind StatusGlyph}" />
+                                            </Border>
+                                        </Grid>
+
+                                        <!--  Params with org logo  -->
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                            <Border
+                                                Width="38"
+                                                Height="38"
+                                                VerticalAlignment="Center"
+                                                Background="{x:Bind OrgLogoColor, Converter={StaticResource ColorToAlphaBrush}, ConverterParameter=30}"
+                                                CornerRadius="19">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="18"
+                                                    FontWeight="Bold"
+                                                    Foreground="{x:Bind OrgLogoColor, Converter={StaticResource ColorToBrush}}"
+                                                    Text="{x:Bind OrgInitial}" />
+                                            </Border>
+                                            <StackPanel VerticalAlignment="Center" Spacing="0">
+                                                <TextBlock
+                                                    FontSize="24"
+                                                    FontWeight="Bold"
+                                                    Foreground="#E8EDF3"
+                                                    Text="{x:Bind ParameterText}" />
+                                                <TextBlock
+                                                    FontSize="10"
+                                                    Foreground="#64A0B4C8"
+                                                    Text="Parameters" />
+                                            </StackPanel>
+                                        </StackPanel>
+
+                                        <!--  VRAM bar  -->
+                                        <StackPanel Spacing="3" Visibility="{x:Bind HasBestFit, Converter={StaticResource BoolToVis}}">
+                                            <Grid>
+                                                <TextBlock
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="10"
+                                                    Foreground="#8CA0B4C8"
+                                                    Text="{x:Bind VramText}" />
+                                                <TextBlock
+                                                    HorizontalAlignment="Right"
+                                                    FontSize="10"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="{x:Bind StatusColor, Converter={StaticResource ColorToBrush}}"
+                                                    Text="{x:Bind VramPercentText}" />
+                                            </Grid>
+                                            <muxc:ProgressBar
+                                                Height="5"
+                                                Background="#1EFFFFFF"
+                                                CornerRadius="2"
+                                                Foreground="{x:Bind StatusColor, Converter={StaticResource ColorToBrush}}"
+                                                Maximum="1"
+                                                Value="{x:Bind VramPercent}" />
+                                        </StackPanel>
+
+                                        <!--  tok/s  -->
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                            Spacing="8"
+                                            Visibility="{x:Bind HasToksPerSec, Converter={StaticResource BoolToVis}}">
+                                            <Ellipse
+                                                Width="7"
+                                                Height="7"
+                                                VerticalAlignment="Center"
+                                                Fill="{x:Bind StatusColor, Converter={StaticResource ColorToBrush}}" />
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                FontWeight="SemiBold"
+                                                Foreground="{x:Bind StatusColor, Converter={StaticResource ColorToBrush}}"
+                                                Text="{x:Bind ToksPerSecText}" />
+                                            <Border
+                                                Padding="7,1,7,1"
+                                                VerticalAlignment="Center"
+                                                Background="#0FFFFFFF"
+                                                CornerRadius="5">
+                                                <TextBlock
+                                                    FontSize="9"
+                                                    Foreground="#A0C8D4DC"
+                                                    Text="{x:Bind QuantDisplayName}" />
+                                            </Border>
+                                        </StackPanel>
+
+                                        <!--  Separator  -->
+                                        <Border
+                                            Height="1"
+                                            Margin="0,1,0,1"
+                                            Background="#0FFFFFFF" />
+
+                                        <!--  Category badge  -->
+                                        <Border
+                                            Padding="9,3,12,3"
+                                            HorizontalAlignment="Left"
+                                            Background="{x:Bind CategoryColor, Converter={StaticResource ColorToAlphaBrush}, ConverterParameter=15}"
+                                            CornerRadius="9">
+                                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                                <FontIcon
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="Segoe MDL2 Assets"
+                                                    FontSize="11"
+                                                    Foreground="{x:Bind CategoryColor, Converter={StaticResource ColorToBrush}}"
+                                                    Glyph="{x:Bind CategoryGlyph}" />
+                                                <TextBlock
+                                                    FontSize="10"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="{x:Bind CategoryColor, Converter={StaticResource ColorToBrush}}"
+                                                    Text="{x:Bind CategoryLabel}" />
+                                            </StackPanel>
+                                        </Border>
+
+                                        <!--  HF badge  -->
+                                        <Border
+                                            Margin="0,-3,0,0"
+                                            Padding="7,2,9,2"
+                                            HorizontalAlignment="Left"
+                                            Background="#0FFFD041"
+                                            CornerRadius="7"
+                                            Visibility="{x:Bind IsHuggingFace, Converter={StaticResource BoolToVis}}">
+                                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                                <TextBlock
+                                                    VerticalAlignment="Center"
+                                                    FontSize="10"
+                                                    Text="&#x1F917;" />
+                                                <TextBlock
+                                                    FontSize="9"
+                                                    Foreground="#8CFFD041"
+                                                    Text="HuggingFace" />
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+
+                <!--  ═══ EMPTY STATE ═══  -->
                 <StackPanel
-                    x:Name="EmptyHint"
                     Margin="0,40,0,60"
                     HorizontalAlignment="Center"
-                    Spacing="12">
+                    Spacing="12"
+                    Visibility="{x:Bind ViewModel.HasResults, Mode=OneWay, Converter={StaticResource BoolToVis}, ConverterParameter=Invert}">
                     <FontIcon
                         HorizontalAlignment="Center"
                         FontFamily="{ThemeResource SymbolThemeFontFamily}"
@@ -697,7 +898,7 @@
                         HorizontalAlignment="Center"
                         FontSize="12"
                         Foreground="#2290A0B0"
-                        Text="We'll check 36 popular LLMs against your specs" />
+                        Text="{x:Bind ViewModel.EmptyHintCountText, Mode=OneWay}" />
                 </StackPanel>
 
             </StackPanel>
