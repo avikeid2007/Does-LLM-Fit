@@ -669,30 +669,23 @@
                 </StackPanel>
 
                 <!--  ═══ MODEL RESULT CARDS (GridView) ═══  -->
-                <GridView
+                <muxc:ItemsRepeater
                     Margin="40,10,40,24"
                     ItemsSource="{x:Bind ViewModel.ModelCards, Mode=OneWay}"
-                    SelectionMode="None"
                     Visibility="{x:Bind ViewModel.HasResults, Mode=OneWay, Converter={StaticResource BoolToVis}}">
-                    <GridView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid
-                                ItemHeight="310"
-                                ItemWidth="290"
-                                Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </GridView.ItemsPanel>
-                    <GridView.ItemContainerStyle>
-                        <Style TargetType="GridViewItem">
-                            <Setter Property="Margin" Value="4" />
-                            <Setter Property="Padding" Value="0" />
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                        </Style>
-                    </GridView.ItemContainerStyle>
-                    <GridView.ItemTemplate>
+                    <muxc:ItemsRepeater.Layout>
+                        <muxc:UniformGridLayout
+                            MinColumnSpacing="8"
+                            MinItemWidth="298"
+                            MinRowSpacing="8"
+                            ItemsStretch="Fill" />
+                    </muxc:ItemsRepeater.Layout>
+                    <muxc:ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="vm:ModelCardViewModel">
                             <Border
+                                Width="290"
+                                Height="310"
+                                Margin="4"
                                 Background="{x:Bind CardBackground, Converter={StaticResource ColorToBrush}}"
                                 BorderBrush="{x:Bind StatusColor, Converter={StaticResource ColorToAlphaBrush}}"
                                 BorderThickness="1"
@@ -878,8 +871,8 @@
                                 </Grid>
                             </Border>
                         </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
+                    </muxc:ItemsRepeater.ItemTemplate>
+                </muxc:ItemsRepeater>
 
                 <!--  ═══ EMPTY STATE ═══  -->
                 <StackPanel
