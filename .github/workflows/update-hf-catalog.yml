@@ -1,0 +1,41 @@
+name: Update HuggingFace Model Catalog
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # Daily at 06:00 UTC
+  workflow_dispatch:        # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-catalog:
+    name: Build HF Model Catalog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build HfCatalogBuilder
+        run: dotnet build tools/HfCatalogBuilder/HfCatalogBuilder.csproj -c Release
+
+      - name: Run HfCatalogBuilder
+        run: dotnet run --project tools/HfCatalogBuilder/HfCatalogBuilder.csproj -c Release -- DoesLLMFit/Data/hf-models.json
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet DoesLLMFit/Data/hf-models.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add DoesLLMFit/Data/hf-models.json
+          git commit -m "chore: update HuggingFace model catalog [skip ci]"
+          git push

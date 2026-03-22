@@ -443,9 +443,7 @@ public partial class ModelCardViewModel : ObservableObject
     public string Organization => MainPageViewModel.GetOrganization(Summary.Model);
     public string OrgDisplayName => OrgLogoHelper.GetDisplayName(Organization);
     public string OrgInitial => string.IsNullOrEmpty(OrgDisplayName) ? "?" : OrgDisplayName[..1].ToUpperInvariant();
-    public string OrgLogoPathData => OrgLogoHelper.GetOrgLogo(Organization).PathData;
-    public double OrgLogoViewboxSize => OrgLogoHelper.GetOrgLogo(Organization).ViewboxSize;
-    public Windows.UI.Color OrgLogoColor => OrgLogoHelper.GetOrgLogo(Organization).BrandColor;
+    public string OrgAvatarUrl => OrgLogoHelper.GetAvatarUrl(Organization);
 
     public ModelCardViewModel(ModelCompatibilitySummary summary, HardwareProfile hardware)
     {

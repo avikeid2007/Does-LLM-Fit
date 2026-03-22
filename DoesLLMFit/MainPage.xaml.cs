@@ -21,7 +21,7 @@ public sealed partial class MainPage : Page
         this.InitializeComponent();
         Loaded += MainPage_Loaded;
 
-        // GPU ComboBox needs brand SVG icons built in code-behind (XamlReader.Load)
+        // GPU ComboBox with brand SVG icons — editable with type-to-search
         ViewModel.GpuItems.CollectionChanged += (_, _) =>
         {
             if (!_gpuComboRebuildPending)
@@ -64,30 +64,33 @@ public sealed partial class MainPage : Page
         await ViewModel.InitializeAsync();
     }
 
-    // ─── GPU Brand Icons (requires XamlReader.Load, can't be done in pure binding) ──
+    // ─── GPU ComboBox with brand icons (editable + type-to-search) ───────
 
-    private const string NvidiaPathData = "M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.922-.124 6.493 3.374 6.493 3.374s-2.774 3.851-5.75 3.851c-.398 0-.787-.062-1.158-.185v-4.346c1.528.185 1.837.857 2.747 2.385l2.04-1.714s-1.492-1.952-4-1.952a6.016 6.016 0 0 0-.796.035m0-4.735v2.138l.424-.027c5.45-.185 9.01 4.47 9.01 4.47s-4.08 4.964-8.33 4.964c-.37 0-.733-.035-1.095-.097v1.325c.3.035.61.062.91.062 3.957 0 6.82-2.023 9.593-4.408.459.371 2.34 1.263 2.73 1.652-2.633 2.208-8.772 3.984-12.253 3.984-.335 0-.653-.018-.971-.053v1.864H24V4.063zm0 10.326v1.131c-3.657-.654-4.673-4.46-4.673-4.46s1.758-1.944 4.673-2.262v1.237H8.94c-1.528-.186-2.73 1.245-2.73 1.245s.68 2.412 2.739 3.11M2.456 10.9s2.164-3.197 6.5-3.533V6.201C4.153 6.59 0 10.653 0 10.653s2.35 6.802 8.948 7.42v-1.237c-4.84-.6-6.492-5.936-6.492-5.936z";
-    private const string IntelPathData = "M9.427 14.401v5.167h-1.646v-6.495h3.396c1.443 0 1.932 1.021 1.932 1.943v4.552h-1.641v-4.542c0-0.391-0.198-0.625-0.682-0.625zM20.615 14.323c-0.568 0-1 0.286-1.182 0.682-0.104 0.219-0.156 0.458-0.156 0.703h2.531c-0.031-0.703-0.354-1.385-1.193-1.385zM19.276 16.828c0 0.839 0.521 1.464 1.458 1.464 0.724 0 1.083-0.203 1.505-0.625l1.016 0.974c-0.646 0.641-1.333 1.031-2.536 1.031-1.573 0-3.078-0.859-3.078-3.359 0-2.141 1.313-3.349 3.042-3.349 1.755 0 2.766 1.417 2.766 3.271v0.589h-4.172zM16.25 19.557c-1.339 0-1.906-0.932-1.906-1.854v-6.401h1.641v1.771h1.234v1.328h-1.234v3.198c0 0.38 0.177 0.589 0.568 0.589h0.667v1.37zM6.318 12.177h-1.656v-1.578h1.656zM6.323 19.635c-1.24-0.12-1.661-0.87-1.661-1.74v-4.823h1.656v6.568zM26.063 19.495c-1.24-0.12-1.656-0.87-1.656-1.734v-7.38h1.656v9.12zM31.859 11.448c-1.5-7.328-15.724-7.792-24.885-2.214v0.62c9.151-4.708 22.141-4.677 23.323 2.063 0.391 2.234-0.865 4.557-3.109 5.896v1.75c2.703-0.99 5.474-4.198 4.672-8.115zM15.198 24.26c-6.323 0.583-12.917-0.339-13.839-5.276-0.448-2.438 0.667-5.021 2.13-6.625v-0.854c-2.646 2.323-4.083 5.266-3.255 8.74 1.057 4.458 6.714 6.984 15.344 6.146 3.417-0.333 7.891-1.432 10.995-3.141v-2.422c-2.818 1.682-7.49 3.073-11.375 3.432zM27.979 10.865c0-0.078-0.052-0.104-0.156-0.104h-0.104v0.229h0.104c0.104 0 0.156-0.031 0.156-0.109zM28.141 11.432h-0.125c-0.01 0-0.021-0.005-0.026-0.016l-0.167-0.286c-0.005-0.005-0.016-0.01-0.026-0.01h-0.073v0.281c0 0.016-0.016 0.031-0.031 0.031h-0.109c-0.016 0-0.031-0.016-0.031-0.031v-0.714c0-0.036 0.021-0.057 0.052-0.063 0.068-0.005 0.135-0.005 0.203-0.005 0.203 0 0.328 0.057 0.328 0.25v0.01c0 0.12-0.063 0.182-0.151 0.214l0.172 0.292c0 0.005 0.005 0.016 0.005 0.021 0.005 0.01-0.005 0.026-0.021 0.026zM27.849 10.484c-0.302 0-0.547 0.245-0.547 0.547 0.005 0.302 0.25 0.547 0.552 0.547 0.297 0 0.542-0.245 0.542-0.542 0-0.302-0.245-0.552-0.547-0.552zM27.849 11.693c-0.365 0-0.661-0.292-0.661-0.656s0.297-0.661 0.661-0.661c0.359 0 0.661 0.297 0.661 0.661s-0.302 0.656-0.661 0.656z";
-    private const string AmdPathData = "M33.614,33.614 L42.864,42.864 L42.864,5.864 L5.864,5.864 L15.114,15.114 L33.614,15.114 Z M15.114,33.614 L15.114,19.55 L5.885,28.778 L5.864,42.864 L19.949,42.842 L29.177,33.614 Z";
-    private const string ApplePathData = "M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z";
+    private static readonly Dictionary<string, (string pathData, double viewboxSize, Color brandColor)> GpuBrandPatterns = new()
+    {
+        ["NVIDIA"] = ("M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.922-.124 6.493 3.374 6.493 3.374s-2.774 3.851-5.75 3.851c-.398 0-.787-.062-1.158-.185v-4.346c1.528.185 1.837.857 2.747 2.385l2.04-1.714s-1.492-1.952-4-1.952a6.016 6.016 0 0 0-.796.035m0-4.735v2.138l.424-.027c5.45-.185 9.01 4.47 9.01 4.47s-4.08 4.964-8.33 4.964c-.37 0-.733-.035-1.095-.097v1.325c.3.035.61.062.91.062 3.957 0 6.82-2.023 9.593-4.408.459.371 2.34 1.263 2.73 1.652-2.633 2.208-8.772 3.984-12.253 3.984-.335 0-.653-.018-.971-.053v1.864H24V4.063zm0 10.326v1.131c-3.657-.654-4.673-4.46-4.673-4.46s1.758-1.944 4.673-2.262v1.237H8.94c-1.528-.186-2.73 1.245-2.73 1.245s.68 2.412 2.739 3.11M2.456 10.9s2.164-3.197 6.5-3.533V6.201C4.153 6.59 0 10.653 0 10.653s2.35 6.802 8.948 7.42v-1.237c-4.84-.6-6.492-5.936-6.492-5.936z", 24, Color.FromArgb(255, 118, 185, 0)),
+        ["AMD"] = ("M33.614,33.614 L42.864,42.864 L42.864,5.864 L5.864,5.864 L15.114,15.114 L33.614,15.114 Z M15.114,33.614 L15.114,19.55 L5.885,28.778 L5.864,42.864 L19.949,42.842 L29.177,33.614 Z", 48, Color.FromArgb(255, 237, 28, 36)),
+        ["Intel"] = ("M9.427 14.401v5.167h-1.646v-6.495h3.396c1.443 0 1.932 1.021 1.932 1.943v4.552h-1.641v-4.542c0-0.391-0.198-0.625-0.682-0.625zM20.615 14.323c-0.568 0-1 0.286-1.182 0.682-0.104 0.219-0.156 0.458-0.156 0.703h2.531c-0.031-0.703-0.354-1.385-1.193-1.385zM19.276 16.828c0 0.839 0.521 1.464 1.458 1.464 0.724 0 1.083-0.203 1.505-0.625l1.016 0.974c-0.646 0.641-1.333 1.031-2.536 1.031-1.573 0-3.078-0.859-3.078-3.359 0-2.141 1.313-3.349 3.042-3.349 1.755 0 2.766 1.417 2.766 3.271v0.589h-4.172zM16.25 19.557c-1.339 0-1.906-0.932-1.906-1.854v-6.401h1.641v1.771h1.234v1.328h-1.234v3.198c0 0.38 0.177 0.589 0.568 0.589h0.667v1.37zM6.318 12.177h-1.656v-1.578h1.656zM6.323 19.635c-1.24-0.12-1.661-0.87-1.661-1.74v-4.823h1.656v6.568zM26.063 19.495c-1.24-0.12-1.656-0.87-1.656-1.734v-7.38h1.656v9.12zM31.859 11.448c-1.5-7.328-15.724-7.792-24.885-2.214v0.62c9.151-4.708 22.141-4.677 23.323 2.063 0.391 2.234-0.865 4.557-3.109 5.896v1.75c2.703-0.99 5.474-4.198 4.672-8.115zM15.198 24.26c-6.323 0.583-12.917-0.339-13.839-5.276-0.448-2.438 0.667-5.021 2.13-6.625v-0.854c-2.646 2.323-4.083 5.266-3.255 8.74 1.057 4.458 6.714 6.984 15.344 6.146 3.417-0.333 7.891-1.432 10.995-3.141v-2.422c-2.818 1.682-7.49 3.073-11.375 3.432zM27.979 10.865c0-0.078-0.052-0.104-0.156-0.104h-0.104v0.229h0.104c0.104 0 0.156-0.031 0.156-0.109zM28.141 11.432h-0.125c-0.01 0-0.021-0.005-0.026-0.016l-0.167-0.286c-0.005-0.005-0.016-0.01-0.026-0.01h-0.073v0.281c0 0.016-0.016 0.031-0.031 0.031h-0.109c-0.016 0-0.031-0.016-0.031-0.031v-0.714c0-0.036 0.021-0.057 0.052-0.063 0.068-0.005 0.135-0.005 0.203-0.005 0.203 0 0.328 0.057 0.328 0.25v0.01c0 0.12-0.063 0.182-0.151 0.214l0.172 0.292c0 0.005 0.005 0.016 0.005 0.021 0.005 0.01-0.005 0.026-0.021 0.026zM27.849 10.484c-0.302 0-0.547 0.245-0.547 0.547 0.005 0.302 0.25 0.547 0.552 0.547 0.297 0 0.542-0.245 0.542-0.542 0-0.302-0.245-0.552-0.547-0.552zM27.849 11.693c-0.365 0-0.661-0.292-0.661-0.656s0.297-0.661 0.661-0.661c0.359 0 0.661 0.297 0.661 0.661s-0.302 0.656-0.661 0.656z", 32, Color.FromArgb(255, 0, 113, 197)),
+        ["Apple"] = ("M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z", 24, Color.FromArgb(255, 162, 170, 173)),
+    };
 
     private static (string pathData, double viewboxSize, Color brandColor) GetGpuBrandInfo(string gpuName)
     {
         if (gpuName.StartsWith("RTX", StringComparison.OrdinalIgnoreCase) ||
             gpuName.StartsWith("GTX", StringComparison.OrdinalIgnoreCase) ||
             gpuName.Contains("GeForce", StringComparison.OrdinalIgnoreCase))
-            return (NvidiaPathData, 24, Color.FromArgb(255, 118, 185, 0));
+            return GpuBrandPatterns["NVIDIA"];
 
         if (gpuName.StartsWith("RX", StringComparison.OrdinalIgnoreCase) ||
             gpuName.Contains("Radeon", StringComparison.OrdinalIgnoreCase))
-            return (AmdPathData, 48, Color.FromArgb(255, 237, 28, 36));
+            return GpuBrandPatterns["AMD"];
 
         if (gpuName.StartsWith("Intel", StringComparison.OrdinalIgnoreCase) ||
             gpuName.StartsWith("Arc", StringComparison.OrdinalIgnoreCase))
-            return (IntelPathData, 32, Color.FromArgb(255, 0, 113, 197));
+            return GpuBrandPatterns["Intel"];
 
         if (gpuName.StartsWith("Apple", StringComparison.OrdinalIgnoreCase))
-            return (ApplePathData, 24, Color.FromArgb(255, 162, 170, 173));
+            return GpuBrandPatterns["Apple"];
 
         return ("", 0, Color.FromArgb(255, 144, 160, 176));
     }
@@ -118,7 +121,9 @@ public sealed partial class MainPage : Page
                 Foreground = new Microsoft.UI.Xaml.Media.SolidColorBrush(Color.FromArgb(230, 232, 237, 243))
             });
 
-            GpuComboBox.Items.Add(new ComboBoxItem { Content = sp, Tag = gpuVm });
+            var cbi = new ComboBoxItem { Content = sp, Tag = gpuVm };
+            Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(cbi, gpuVm.Name);
+            GpuComboBox.Items.Add(cbi);
         }
     }
 
@@ -139,8 +144,6 @@ public sealed partial class MainPage : Page
         }
     }
 
-    // Keep: GPU ComboBox SelectionChanged bridges to ViewModel
-    // (because we use custom ComboBoxItems with SVG icons, not ItemsSource binding)
     private void GpuComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (GpuComboBox.SelectedItem is ComboBoxItem item && item.Tag is GpuItemViewModel gpuVm)
@@ -167,7 +170,7 @@ public sealed partial class MainPage : Page
         }
     }
 
-    // ─── Organization ComboBox with SVG logos ──────────────
+    // ─── Organization ComboBox with image logos ──────────────
 
     private void PopulateOrgComboBox()
     {
@@ -181,15 +184,18 @@ public sealed partial class MainPage : Page
 
                 if (orgName != "All")
                 {
-                    var (pathData, vbSize, brandColor) = OrgLogoHelper.GetOrgLogo(orgName);
-                    var viewbox = new Viewbox { Width = 16, Height = 16, VerticalAlignment = VerticalAlignment.Center };
-                    var canvas = new Canvas { Width = vbSize, Height = vbSize };
-                    var icon = (Microsoft.UI.Xaml.Shapes.Path)XamlReader.Load(
-                        $"<Path xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' Data='{pathData}' />");
-                    icon.Fill = new Microsoft.UI.Xaml.Media.SolidColorBrush(brandColor);
-                    canvas.Children.Add(icon);
-                    viewbox.Child = canvas;
-                    sp.Children.Add(viewbox);
+                    var avatarUrl = OrgLogoHelper.GetAvatarUrl(orgName);
+                    var img = new Image
+                    {
+                        Width = 18,
+                        Height = 18,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri(avatarUrl))
+                        {
+                            DecodePixelWidth = 36
+                        }
+                    };
+                    sp.Children.Add(img);
                 }
 
                 sp.Children.Add(new TextBlock

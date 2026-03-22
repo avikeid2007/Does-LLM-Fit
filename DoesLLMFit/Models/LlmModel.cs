@@ -19,6 +19,9 @@ public record LlmModel
     [JsonPropertyName("head_dim")]
     public int HeadDim { get; init; }
 
+    [JsonPropertyName("max_context")]
+    public int MaxContext { get; init; }
+
     [JsonPropertyName("categories")]
     public IReadOnlyList<string> Categories { get; init; } = [];
 
@@ -36,6 +39,9 @@ public record LlmModel
 
     [JsonPropertyName("downloads")]
     public long Downloads { get; init; }
+
+    [JsonPropertyName("license")]
+    public string License { get; init; } = string.Empty;
 
     /// <summary>Curated = from static JSON, HuggingFace = fetched from HF API.</summary>
     [JsonIgnore]

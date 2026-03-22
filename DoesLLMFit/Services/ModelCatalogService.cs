@@ -72,17 +72,13 @@ public class ModelCatalogService
         return _models.Where(m => m.Categories.Contains(category, StringComparer.OrdinalIgnoreCase)).ToList();
     }
 
-    public IReadOnlyList<LlmModel> SearchModels(string query)
-    {
-        if (string.IsNullOrWhiteSpace(query))
-            return _models;
-
-        return _models.Where(m =>
+    public IReadOnlyList<LlmModel> SearchModels(string query) => string.IsNullOrWhiteSpace(query)
+            ? _models
+            : [.. _models.Where(m =>
             m.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
             m.Description.Contains(query, StringComparison.OrdinalIgnoreCase) ||
             m.Categories.Any(c => c.Contains(query, StringComparison.OrdinalIgnoreCase))
-        ).ToList();
-    }
+        )];
 
     public IReadOnlyList<string> GetAllCategories()
     {
