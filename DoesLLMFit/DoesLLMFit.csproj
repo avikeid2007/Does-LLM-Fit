@@ -1,4 +1,4 @@
-<Project Sdk="Uno.Sdk">
+<Project Sdk="Uno.Sdk" TreatAsLocalProperty="SelfContained">
   <PropertyGroup>
     <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-windows10.0.26100;net9.0-browserwasm;net9.0-desktop</TargetFrameworks>
 
@@ -43,6 +43,11 @@
       ThemeService;
       SkiaRenderer;
     </UnoFeatures>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net9.0-windows10.0.26100'">
+    <SelfContained>false</SelfContained>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,9 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UnoIcon Include="Assets\logo.png"
-             ForegroundScale="0.65"
-             Color="#0D1117" />
+    <UnoIcon Include="Assets\logo.png" ForegroundScale="0.65" Color="#0D1117" />
   </ItemGroup>
 
   <ItemGroup>
