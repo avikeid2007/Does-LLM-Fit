@@ -21,7 +21,24 @@
     <Application Id="App"
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
-      <uap:VisualElements />
+      <uap:VisualElements
+        DisplayName="DoesLLMFit"
+        Description="DoesLLMFit powered by Uno Platform."
+        BackgroundColor="#0D1117"
+        Square150x150Logo="Assets\logoMediumTile.png"
+        Square44x44Logo="Assets\logoLogo.png">
+        <uap:DefaultTile
+          ShortName="DoesLLMFit"
+          Wide310x150Logo="Assets\logoWideTile.png"
+          Square71x71Logo="Assets\logoSmallTile.png"
+          Square310x310Logo="Assets\logoLargeTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\Splash\logo_splash.png" BackgroundColor="#0D1117" />
+      </uap:VisualElements>
     </Application>
   </Applications>
 

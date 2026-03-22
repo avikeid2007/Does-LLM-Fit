@@ -17,6 +17,7 @@ namespace DoesLLMFit.Droid;
 [global::Android.App.ApplicationAttribute(
     Label = "@string/ApplicationName",
     Icon = "@mipmap/logo",
+    RoundIcon = "@mipmap/logo_round",
     LargeHeap = true,
     HardwareAccelerated = true,
     Theme = "@style/Theme.App.Starting"
