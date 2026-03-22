@@ -48,6 +48,8 @@
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net9.0-windows10.0.26100'">
     <SelfContained>false</SelfContained>
+    <WindowsPackageType>MSIX</WindowsPackageType>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
   </PropertyGroup>
 
   <ItemGroup>

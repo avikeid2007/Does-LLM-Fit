@@ -1,0 +1,140 @@
+name: MSIX Store Upload
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Package version (e.g. 1.0.1.0). Leave blank to use tag or default.'
+        required: false
+
+env:
+  STEP_TIMEOUT_MINUTES: 60
+  PROJECT_PATH: DoesLLMFit/DoesLLMFit.csproj
+  TFM: net9.0-windows10.0.26100
+  PLATFORM: x64
+
+jobs:
+  build-msix:
+    name: Build MSIX Upload Package
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
+        uses: "./.github/steps/install_dependencies"
+        with:
+          target-platform: 'wasdk'
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.3.1
+
+      # Decode the PFX from the GitHub secret and install it
+      - name: Import signing certificate
+        shell: pwsh
+        env:
+          SIGNING_CERT_PFX_BASE64: ${{ secrets.SIGNING_CERT_PFX_BASE64 }}
+          SIGNING_CERT_PASSWORD: ${{ secrets.SIGNING_CERT_PASSWORD }}
+        run: |
+          $pfxBytes = [System.Convert]::FromBase64String($env:SIGNING_CERT_PFX_BASE64)
+          $pfxPath = Join-Path $env:RUNNER_TEMP "SigningCert.pfx"
+          [System.IO.File]::WriteAllBytes($pfxPath, $pfxBytes)
+
+          $securePassword = ConvertTo-SecureString $env:SIGNING_CERT_PASSWORD -AsPlainText -Force
+          $cert = Import-PfxCertificate -FilePath $pfxPath `
+            -CertStoreLocation Cert:\CurrentUser\My `
+            -Password $securePassword
+
+          echo "CERT_THUMBPRINT=$($cert.Thumbprint)" >> $env:GITHUB_ENV
+          echo "PFX_PATH=$pfxPath" >> $env:GITHUB_ENV
+          Write-Host "Certificate imported: $($cert.Subject) [$($cert.Thumbprint)]"
+
+      # Optionally stamp the version from the tag or workflow input
+      - name: Determine version
+        id: version
+        shell: pwsh
+        run: |
+          $ver = "${{ github.event.inputs.version }}"
+          if ([string]::IsNullOrWhiteSpace($ver) -and "${{ github.ref_type }}" -eq "tag") {
+            $ver = "${{ github.ref_name }}" -replace '^v', ''
+            # Ensure 4-part version: 1.0.1 → 1.0.1.0
+            $parts = $ver.Split('.')
+            while ($parts.Count -lt 4) { $parts += '0' }
+            $ver = $parts -join '.'
+          }
+          if ([string]::IsNullOrWhiteSpace($ver)) { $ver = "1.0.0.0" }
+          echo "APP_VERSION=$ver" >> $env:GITHUB_ENV
+          Write-Host "Package version: $ver"
+
+      - name: Update manifest version
+        shell: pwsh
+        run: |
+          $manifest = "DoesLLMFit/Package.appxmanifest"
+          $content = Get-Content $manifest -Raw
+          $content = $content -replace 'Version="[^"]*"', "Version=`"$env:APP_VERSION`""
+          Set-Content $manifest $content -NoNewline
+          Write-Host "Manifest version set to $env:APP_VERSION"
+
+      - name: Build & Package MSIX
+        shell: pwsh
+        run: |
+          dotnet publish $env:PROJECT_PATH `
+            -f $env:TFM `
+            -c Release `
+            -p:Platform=$env:PLATFORM `
+            -p:GenerateAppxPackageOnBuild=true `
+            -p:AppxBundle=Never `
+            -p:AppxPackageSigningEnabled=true `
+            -p:PackageCertificateThumbprint=$env:CERT_THUMBPRINT `
+            -p:PublishTrimmed=false `
+            -p:PublishReadyToRun=false
+
+      - name: Create .msixupload
+        shell: pwsh
+        run: |
+          $msix = Get-ChildItem -Path "DoesLLMFit/bin" -Recurse -Filter "*.msix" |
+            Sort-Object LastWriteTime -Descending | Select-Object -First 1
+
+          if (-not $msix) { throw "No .msix found in build output" }
+
+          $zipPath  = [System.IO.Path]::ChangeExtension($msix.FullName, ".zip")
+          $uploadPath = [System.IO.Path]::ChangeExtension($msix.FullName, ".msixupload")
+
+          Compress-Archive -Path $msix.FullName -DestinationPath $zipPath -CompressionLevel Optimal
+          Rename-Item $zipPath $uploadPath
+
+          echo "MSIXUPLOAD_PATH=$uploadPath" >> $env:GITHUB_ENV
+          echo "MSIXUPLOAD_NAME=$([System.IO.Path]::GetFileName($uploadPath))" >> $env:GITHUB_ENV
+          Write-Host "Created: $uploadPath ($([math]::Round((Get-Item $uploadPath).Length / 1MB, 2)) MB)"
+
+      - name: Upload MSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: msixupload
+          path: ${{ env.MSIXUPLOAD_PATH }}
+          retention-days: 30
+
+      # Also upload the raw .msix for sideload testing
+      - name: Upload MSIX (sideload) artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: msix-sideload
+          path: DoesLLMFit/bin/**/AppPackages/**/*.msix
+          retention-days: 30
+
+      - name: Cleanup certificate
+        if: always()
+        shell: pwsh
+        run: |
+          if ($env:CERT_THUMBPRINT) {
+            Remove-Item "Cert:\CurrentUser\My\$env:CERT_THUMBPRINT" -ErrorAction SilentlyContinue
+          }
+          if (Test-Path $env:PFX_PATH) {
+            Remove-Item $env:PFX_PATH -Force -ErrorAction SilentlyContinue
+          }

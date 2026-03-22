@@ -1,12 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap">
 
-  <Identity />
-  <Properties />
+  <Identity
+    Name="com.avnishkumar.DoesLLMFit"
+    Publisher="CN=1494B4FB-4349-4083-8AFA-16D2A64B8D99"
+    Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>DoesLLMFit</DisplayName>
+    <PublisherDisplayName>Avnish Kumar</PublisherDisplayName>
+    <Logo>Assets\logoStoreLogo.png</Logo>
+  </Properties>
 
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
