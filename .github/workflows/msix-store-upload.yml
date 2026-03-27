@@ -76,9 +76,9 @@ jobs:
         shell: pwsh
         run: |
           $manifest = "DoesLLMFit/Package.appxmanifest"
-          $content = Get-Content $manifest -Raw
-          $content = $content -replace 'Version="[^"]*"', "Version=`"$env:APP_VERSION`""
-          Set-Content $manifest $content -NoNewline
+          [xml]$xml = Get-Content $manifest
+          $xml.Package.Identity.Version = $env:APP_VERSION
+          $xml.Save((Resolve-Path $manifest).Path)
           Write-Host "Manifest version set to $env:APP_VERSION"
 
       - name: Build & Package MSIX
