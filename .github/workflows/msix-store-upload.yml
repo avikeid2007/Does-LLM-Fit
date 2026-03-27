@@ -84,9 +84,11 @@ jobs:
       - name: Build & Package MSIX
         shell: pwsh
         run: |
+          dotnet restore $env:PROJECT_PATH -p:TargetFramework=$env:TFM
           dotnet publish $env:PROJECT_PATH `
             -f $env:TFM `
             -c Release `
+            --no-restore `
             -p:Platform=$env:PLATFORM `
             -p:GenerateAppxPackageOnBuild=true `
             -p:AppxBundle=Never `
