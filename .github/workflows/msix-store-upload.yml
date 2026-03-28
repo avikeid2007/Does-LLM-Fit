@@ -81,10 +81,27 @@ jobs:
           $xml.Save((Resolve-Path $manifest).Path)
           Write-Host "Manifest version set to $env:APP_VERSION"
 
+      - name: Normalize manifest for desktop MSIX
+        shell: pwsh
+        run: |
+          $manifest = "DoesLLMFit/Package.appxmanifest"
+          $content = Get-Content $manifest -Raw
+
+          # Remove legacy phone manifest namespace and ignorable token if present.
+          $content = $content -replace '\s+xmlns:mp="[^"]+"', ''
+          $content = $content -replace 'IgnorableNamespaces="([^"]*)\bmp\b\s*([^"]*)"', 'IgnorableNamespaces="$1$2"'
+          $content = $content -replace 'IgnorableNamespaces="\s+"', 'IgnorableNamespaces=""'
+
+          # Remove legacy PhoneIdentity element which causes MakeAppx validation errors.
+          $content = $content -replace '\s*<mp:PhoneIdentity[^>]*/>\s*', "`r`n"
+
+          Set-Content -Path $manifest -Value $content -NoNewline
+          Write-Host "Manifest normalized for desktop packaging"
+
       - name: Build & Package MSIX
         shell: pwsh
         run: |
-          dotnet restore $env:PROJECT_PATH -p:TargetFramework=$env:TFM
+          dotnet restore $env:PROJECT_PATH -p:TargetFramework=$env:TFM --ignore-failed-sources
           dotnet publish $env:PROJECT_PATH `
             -f $env:TFM `
             -c Release `
