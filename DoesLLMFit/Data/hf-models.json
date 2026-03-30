@@ -9,7 +9,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 18.5M downloads",
+    "description": "HuggingFace model with 17.4M downloads",
     "huggingface_id": "Qwen/Qwen2.5-7B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -21,7 +21,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 18512108,
+    "downloads": 17413142,
     "license": "apache-2.0"
   },
   {
@@ -34,7 +34,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 13.9M downloads",
+    "description": "HuggingFace model with 13.8M downloads",
     "huggingface_id": "Qwen/Qwen3-0.6B",
     "supported_quants": [
       "Q2_K",
@@ -46,7 +46,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 13867248,
+    "downloads": 13809885,
     "license": "apache-2.0"
   },
   {
@@ -59,7 +59,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 9.5M downloads",
+    "description": "HuggingFace model with 9.6M downloads",
     "huggingface_id": "Qwen/Qwen2.5-1.5B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -71,7 +71,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 9531613,
+    "downloads": 9628240,
     "license": "apache-2.0"
   },
   {
@@ -84,7 +84,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 9.4M downloads",
+    "description": "HuggingFace model with 9.6M downloads",
     "huggingface_id": "Qwen/Qwen3-8B",
     "supported_quants": [
       "Q2_K",
@@ -96,7 +96,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 9381552,
+    "downloads": 9574737,
     "license": "apache-2.0"
   },
   {
@@ -109,7 +109,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 8.5M downloads",
+    "description": "HuggingFace model with 8.3M downloads",
     "huggingface_id": "meta-llama/Llama-3.1-8B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -121,33 +121,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 8465943,
+    "downloads": 8344534,
     "license": "llama3.1"
-  },
-  {
-    "name": "Qwen2.5 3B Instruct",
-    "parameters_b": 3,
-    "num_layers": 36,
-    "kv_heads": 2,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 7.8M downloads",
-    "huggingface_id": "Qwen/Qwen2.5-3B-Instruct",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 7843961,
-    "license": "other"
   },
   {
     "name": "Llama 3.2 3B Instruct",
@@ -159,7 +134,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 7.3M downloads",
+    "description": "HuggingFace model with 7.7M downloads",
     "huggingface_id": "meta-llama/Llama-3.2-3B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -171,8 +146,33 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 7307107,
+    "downloads": 7664361,
     "license": "llama3.2"
+  },
+  {
+    "name": "Qwen2.5 3B Instruct",
+    "parameters_b": 3,
+    "num_layers": 36,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 7.6M downloads",
+    "huggingface_id": "Qwen/Qwen2.5-3B-Instruct",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 7618286,
+    "license": "other"
   },
   {
     "name": "Qwen3 1.7B",
@@ -196,7 +196,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 6908001,
+    "downloads": 6902427,
     "license": "apache-2.0"
   },
   {
@@ -221,32 +221,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 6747295,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3 4B",
-    "parameters_b": 4,
-    "num_layers": 36,
-    "kv_heads": 8,
-    "head_dim": 80,
-    "max_context": 40960,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 6.5M downloads",
-    "huggingface_id": "Qwen/Qwen3-4B",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 6453715,
+    "downloads": 6734875,
     "license": "apache-2.0"
   },
   {
@@ -260,7 +235,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 6.4M downloads",
+    "description": "HuggingFace model with 6.7M downloads",
     "huggingface_id": "Qwen/Qwen2.5-VL-3B-Instruct",
     "supported_quants": [
       "Q4_K_M",
@@ -268,8 +243,33 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 6380843,
+    "downloads": 6654181,
     "license": ""
+  },
+  {
+    "name": "Qwen3 4B",
+    "parameters_b": 4,
+    "num_layers": 36,
+    "kv_heads": 8,
+    "head_dim": 80,
+    "max_context": 40960,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 6.6M downloads",
+    "huggingface_id": "Qwen/Qwen3-4B",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 6613129,
+    "license": "apache-2.0"
   },
   {
     "name": "Qwen3 4B Instruct 2507",
@@ -293,7 +293,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 6219217,
+    "downloads": 6235673,
     "license": "apache-2.0"
   },
   {
@@ -306,7 +306,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 6.0M downloads",
+    "description": "HuggingFace model with 5.6M downloads",
     "huggingface_id": "Qwen/Qwen2.5-0.5B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -318,51 +318,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 6042386,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3 VL 8B Instruct",
-    "parameters_b": 8,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 4.7M downloads",
-    "huggingface_id": "Qwen/Qwen3-VL-8B-Instruct",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 4685322,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen2.5 VL 7B Instruct",
-    "parameters_b": 7,
-    "num_layers": 28,
-    "kv_heads": 4,
-    "head_dim": 128,
-    "max_context": 128000,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 4.7M downloads",
-    "huggingface_id": "Qwen/Qwen2.5-VL-7B-Instruct",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 4666418,
+    "downloads": 5613212,
     "license": "apache-2.0"
   },
   {
@@ -376,7 +332,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 4.6M downloads",
+    "description": "HuggingFace model with 4.7M downloads",
     "huggingface_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
     "supported_quants": [
       "Q4_K_M",
@@ -384,7 +340,51 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 4577849,
+    "downloads": 4665805,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen3 VL 8B Instruct",
+    "parameters_b": 8,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 4.6M downloads",
+    "huggingface_id": "Qwen/Qwen3-VL-8B-Instruct",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 4649140,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen2.5 VL 7B Instruct",
+    "parameters_b": 7,
+    "num_layers": 28,
+    "kv_heads": 4,
+    "head_dim": 128,
+    "max_context": 128000,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 4.6M downloads",
+    "huggingface_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 4585865,
     "license": "apache-2.0"
   },
   {
@@ -409,7 +409,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 4522197,
+    "downloads": 4529796,
     "license": "apache-2.0"
   },
   {
@@ -434,33 +434,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 4415075,
+    "downloads": 4363728,
     "license": "apache-2.0"
-  },
-  {
-    "name": "Llama 3.2 1B Instruct",
-    "parameters_b": 1,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 4.2M downloads",
-    "huggingface_id": "meta-llama/Llama-3.2-1B-Instruct",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 4206325,
-    "license": "llama3.2"
   },
   {
     "name": "Qwen3.5 9B",
@@ -473,7 +448,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 4.1M downloads",
+    "description": "HuggingFace model with 4.3M downloads",
     "huggingface_id": "Qwen/Qwen3.5-9B",
     "supported_quants": [
       "Q4_K_M",
@@ -481,7 +456,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 4116338,
+    "downloads": 4286464,
     "license": "apache-2.0"
   },
   {
@@ -494,7 +469,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 3.9M downloads",
+    "description": "HuggingFace model with 4.3M downloads",
     "huggingface_id": "Qwen/Qwen2.5-32B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -506,8 +481,33 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 3882078,
+    "downloads": 4260030,
     "license": "apache-2.0"
+  },
+  {
+    "name": "Llama 3.2 1B Instruct",
+    "parameters_b": 1,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 4.1M downloads",
+    "huggingface_id": "meta-llama/Llama-3.2-1B-Instruct",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 4106898,
+    "license": "llama3.2"
   },
   {
     "name": "Qwen3 32B",
@@ -531,7 +531,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 3790772,
+    "downloads": 3761518,
     "license": "apache-2.0"
   },
   {
@@ -545,7 +545,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 3.6M downloads",
+    "description": "HuggingFace model with 3.5M downloads",
     "huggingface_id": "llava-hf/llava-1.5-7b-hf",
     "supported_quants": [
       "Q4_K_M",
@@ -553,7 +553,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 3649503,
+    "downloads": 3548623,
     "license": "llama2"
   },
   {
@@ -566,7 +566,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 3.5M downloads",
+    "description": "HuggingFace model with 3.4M downloads",
     "huggingface_id": "meta-llama/Meta-Llama-3-8B",
     "supported_quants": [
       "Q2_K",
@@ -578,8 +578,30 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 3539370,
+    "downloads": 3352688,
     "license": "llama3"
+  },
+  {
+    "name": "Qwen3.5 35B A3B",
+    "parameters_b": 35,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 3.0M downloads",
+    "huggingface_id": "Qwen/Qwen3.5-35B-A3B",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 3031012,
+    "license": "apache-2.0"
   },
   {
     "name": "Qwen2 1.5B Instruct",
@@ -603,7 +625,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 3026378,
+    "downloads": 3003988,
     "license": "apache-2.0"
   },
   {
@@ -628,29 +650,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 2986136,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3.5 35B A3B",
-    "parameters_b": 35,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 3.0M downloads",
-    "huggingface_id": "Qwen/Qwen3.5-35B-A3B",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 2983539,
+    "downloads": 2980325,
     "license": "apache-2.0"
   },
   {
@@ -675,7 +675,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 2866318,
+    "downloads": 2869518,
     "license": "llama2"
   },
   {
@@ -700,7 +700,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 2795526,
+    "downloads": 2845340,
     "license": "apache-2.0"
   },
   {
@@ -713,7 +713,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 2.8M downloads",
+    "description": "HuggingFace model with 2.7M downloads",
     "huggingface_id": "mistralai/Mistral-7B-Instruct-v0.2",
     "supported_quants": [
       "Q2_K",
@@ -725,8 +725,52 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 2753280,
+    "downloads": 2673988,
     "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen3.5 27B",
+    "parameters_b": 27,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 2.7M downloads",
+    "huggingface_id": "Qwen/Qwen3.5-27B",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 2651267,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "gemma 3 12b it",
+    "parameters_b": 12,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 2.6M downloads",
+    "huggingface_id": "google/gemma-3-12b-it",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 2571164,
+    "license": "gemma"
   },
   {
     "name": "Qwen2.5 Coder 7B Instruct",
@@ -750,29 +794,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 2604834,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3.5 27B",
-    "parameters_b": 27,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 2.6M downloads",
-    "huggingface_id": "Qwen/Qwen3.5-27B",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 2584387,
+    "downloads": 2557597,
     "license": "apache-2.0"
   },
   {
@@ -794,30 +816,8 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 2537779,
+    "downloads": 2528954,
     "license": "apache-2.0"
-  },
-  {
-    "name": "gemma 3 12b it",
-    "parameters_b": 12,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 2.5M downloads",
-    "huggingface_id": "google/gemma-3-12b-it",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 2492231,
-    "license": "gemma"
   },
   {
     "name": "Qwen3.5 35B A3B FP8",
@@ -838,29 +838,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 2465600,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen2 VL 2B Instruct",
-    "parameters_b": 2,
-    "num_layers": 28,
-    "kv_heads": 2,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 2.4M downloads",
-    "huggingface_id": "Qwen/Qwen2-VL-2B-Instruct",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 2409546,
+    "downloads": 2482193,
     "license": "apache-2.0"
   },
   {
@@ -882,7 +860,29 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 2358784,
+    "downloads": 2432943,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen2 VL 2B Instruct",
+    "parameters_b": 2,
+    "num_layers": 28,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 2.3M downloads",
+    "huggingface_id": "Qwen/Qwen2-VL-2B-Instruct",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 2320345,
     "license": "apache-2.0"
   },
   {
@@ -896,7 +896,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 2.1M downloads",
+    "description": "HuggingFace model with 2.0M downloads",
     "huggingface_id": "Qwen/Qwen3-VL-4B-Instruct",
     "supported_quants": [
       "Q4_K_M",
@@ -904,7 +904,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 2055514,
+    "downloads": 2023717,
     "license": "apache-2.0"
   },
   {
@@ -926,7 +926,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 2014099,
+    "downloads": 1992644,
     "license": "apache-2.0"
   },
   {
@@ -939,7 +939,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 1.9M downloads",
+    "description": "HuggingFace model with 2.0M downloads",
     "huggingface_id": "Qwen/Qwen2.5-14B-Instruct-AWQ",
     "supported_quants": [
       "Q2_K",
@@ -951,62 +951,12 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1908735,
+    "downloads": 1969054,
     "license": "apache-2.0"
   },
   {
-    "name": "gemma 3 1b it",
-    "parameters_b": 1,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 1.9M downloads",
-    "huggingface_id": "google/gemma-3-1b-it",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 1894214,
-    "license": "gemma"
-  },
-  {
-    "name": "Llama 3.2 1B",
-    "parameters_b": 1,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 1.9M downloads",
-    "huggingface_id": "meta-llama/Llama-3.2-1B",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 1866230,
-    "license": "llama3.2"
-  },
-  {
-    "name": "Llama 3.1 Nemotron Nano VL 8B V1",
-    "parameters_b": 8,
+    "name": "Qwen3.5 0.8B",
+    "parameters_b": 0.8,
     "num_layers": 0,
     "kv_heads": 0,
     "head_dim": 0,
@@ -1016,15 +966,15 @@
       "Vision"
     ],
     "description": "HuggingFace model with 1.9M downloads",
-    "huggingface_id": "nvidia/Llama-3.1-Nemotron-Nano-VL-8B-V1",
+    "huggingface_id": "Qwen/Qwen3.5-0.8B",
     "supported_quants": [
       "Q4_K_M",
       "Q8_0",
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 1856137,
-    "license": "other"
+    "downloads": 1863653,
+    "license": "apache-2.0"
   },
   {
     "name": "Qwen2.5 0.5B",
@@ -1048,12 +998,12 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1828985,
+    "downloads": 1834226,
     "license": "apache-2.0"
   },
   {
-    "name": "Qwen3.5 0.8B",
-    "parameters_b": 0.8,
+    "name": "Llama 3.1 Nemotron Nano VL 8B V1",
+    "parameters_b": 8,
     "num_layers": 0,
     "kv_heads": 0,
     "head_dim": 0,
@@ -1063,15 +1013,40 @@
       "Vision"
     ],
     "description": "HuggingFace model with 1.8M downloads",
-    "huggingface_id": "Qwen/Qwen3.5-0.8B",
+    "huggingface_id": "nvidia/Llama-3.1-Nemotron-Nano-VL-8B-V1",
     "supported_quants": [
       "Q4_K_M",
       "Q8_0",
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 1800500,
-    "license": "apache-2.0"
+    "downloads": 1812514,
+    "license": "other"
+  },
+  {
+    "name": "Llama 3.2 1B",
+    "parameters_b": 1,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 1.8M downloads",
+    "huggingface_id": "meta-llama/Llama-3.2-1B",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 1807422,
+    "license": "llama3.2"
   },
   {
     "name": "Qwen3 0.6B FP8",
@@ -1083,7 +1058,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 1.8M downloads",
+    "description": "HuggingFace model with 1.7M downloads",
     "huggingface_id": "Qwen/Qwen3-0.6B-FP8",
     "supported_quants": [
       "Q2_K",
@@ -1095,7 +1070,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1764086,
+    "downloads": 1747079,
     "license": "apache-2.0"
   },
   {
@@ -1108,7 +1083,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 1.8M downloads",
+    "description": "HuggingFace model with 1.7M downloads",
     "huggingface_id": "Qwen/Qwen2.5-32B-Instruct-AWQ",
     "supported_quants": [
       "Q2_K",
@@ -1120,30 +1095,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1757728,
+    "downloads": 1731186,
     "license": "apache-2.0"
-  },
-  {
-    "name": "gemma 3 4b it",
-    "parameters_b": 4,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 1.7M downloads",
-    "huggingface_id": "google/gemma-3-4b-it",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 1725522,
-    "license": "gemma"
   },
   {
     "name": "Qwen2.5 32B",
@@ -1167,8 +1120,55 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1673343,
+    "downloads": 1676534,
     "license": "apache-2.0"
+  },
+  {
+    "name": "gemma 3 4b it",
+    "parameters_b": 4,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 1.6M downloads",
+    "huggingface_id": "google/gemma-3-4b-it",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 1632168,
+    "license": "gemma"
+  },
+  {
+    "name": "gemma 2 2b it GGUF",
+    "parameters_b": 2,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 1.6M downloads",
+    "huggingface_id": "bartowski/gemma-2-2b-it-GGUF",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 1619299,
+    "license": "gemma"
   },
   {
     "name": "Qwen2 VL 7B Instruct AWQ",
@@ -1189,21 +1189,21 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 1633149,
+    "downloads": 1617529,
     "license": "apache-2.0"
   },
   {
-    "name": "Llama 3.2 1B Instruct FP8 dynamic",
-    "parameters_b": 1,
-    "num_layers": 16,
+    "name": "Qwen3 8B Base",
+    "parameters_b": 8,
+    "num_layers": 36,
     "kv_heads": 8,
-    "head_dim": 64,
-    "max_context": 131072,
+    "head_dim": 128,
+    "max_context": 32768,
     "categories": [
       "Text Generation"
     ],
     "description": "HuggingFace model with 1.6M downloads",
-    "huggingface_id": "RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic",
+    "huggingface_id": "Qwen/Qwen3-8B-Base",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -1214,8 +1214,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1565689,
-    "license": "llama3.2"
+    "downloads": 1591325,
+    "license": "apache-2.0"
   },
   {
     "name": "OpenELM 1 1B Instruct",
@@ -1239,21 +1239,21 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1550305,
+    "downloads": 1551771,
     "license": "apple-amlr"
   },
   {
-    "name": "Qwen3 8B Base",
-    "parameters_b": 8,
-    "num_layers": 36,
+    "name": "Llama 3.2 1B Instruct FP8 dynamic",
+    "parameters_b": 1,
+    "num_layers": 16,
     "kv_heads": 8,
-    "head_dim": 128,
-    "max_context": 32768,
+    "head_dim": 64,
+    "max_context": 131072,
     "categories": [
       "Text Generation"
     ],
     "description": "HuggingFace model with 1.5M downloads",
-    "huggingface_id": "Qwen/Qwen3-8B-Base",
+    "huggingface_id": "RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -1264,81 +1264,12 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1545367,
-    "license": "apache-2.0"
+    "downloads": 1548064,
+    "license": "llama3.2"
   },
   {
-    "name": "Qwen2 VL 7B Instruct",
-    "parameters_b": 7,
-    "num_layers": 28,
-    "kv_heads": 4,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 1.5M downloads",
-    "huggingface_id": "Qwen/Qwen2-VL-7B-Instruct",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 1522965,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3.5 397B A17B",
-    "parameters_b": 397,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 1.5M downloads",
-    "huggingface_id": "Qwen/Qwen3.5-397B-A17B",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 1509796,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen2.5 14B Instruct",
-    "parameters_b": 14,
-    "num_layers": 48,
-    "kv_heads": 8,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 1.5M downloads",
-    "huggingface_id": "Qwen/Qwen2.5-14B-Instruct",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 1502679,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "gemma 2 2b it GGUF",
-    "parameters_b": 2,
+    "name": "gemma 3 1b it",
+    "parameters_b": 1,
     "num_layers": 0,
     "kv_heads": 0,
     "head_dim": 0,
@@ -1347,7 +1278,7 @@
       "Text Generation"
     ],
     "description": "HuggingFace model with 1.5M downloads",
-    "huggingface_id": "bartowski/gemma-2-2b-it-GGUF",
+    "huggingface_id": "google/gemma-3-1b-it",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -1358,7 +1289,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1491676,
+    "downloads": 1501244,
     "license": "gemma"
   },
   {
@@ -1383,30 +1314,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1451760,
+    "downloads": 1493077,
     "license": "apache-2.0"
-  },
-  {
-    "name": "InternVL2 2B",
-    "parameters_b": 2,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 1.4M downloads",
-    "huggingface_id": "OpenGVLab/InternVL2-2B",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 1424007,
-    "license": "mit"
   },
   {
     "name": "Qwen3.5 9B GGUF",
@@ -1419,7 +1328,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 1.4M downloads",
+    "description": "HuggingFace model with 1.5M downloads",
     "huggingface_id": "unsloth/Qwen3.5-9B-GGUF",
     "supported_quants": [
       "Q4_K_M",
@@ -1427,7 +1336,29 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 1423560,
+    "downloads": 1459680,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen2 VL 7B Instruct",
+    "parameters_b": 7,
+    "num_layers": 28,
+    "kv_heads": 4,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 1.4M downloads",
+    "huggingface_id": "Qwen/Qwen2-VL-7B-Instruct",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 1444450,
     "license": "apache-2.0"
   },
   {
@@ -1452,7 +1383,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1406601,
+    "downloads": 1416131,
     "license": "llama3"
   },
   {
@@ -1477,8 +1408,52 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1400352,
+    "downloads": 1398754,
     "license": "llama3.1"
+  },
+  {
+    "name": "InternVL2 2B",
+    "parameters_b": 2,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 1.4M downloads",
+    "huggingface_id": "OpenGVLab/InternVL2-2B",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 1381959,
+    "license": "mit"
+  },
+  {
+    "name": "Qwen3.5 397B A17B",
+    "parameters_b": 397,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 1.4M downloads",
+    "huggingface_id": "Qwen/Qwen3.5-397B-A17B",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 1381182,
+    "license": "apache-2.0"
   },
   {
     "name": "nb wav2vec2 1b nynorsk",
@@ -1490,7 +1465,7 @@
     "categories": [
       "Speech Recognition"
     ],
-    "description": "HuggingFace model with 1.3M downloads",
+    "description": "HuggingFace model with 1.4M downloads",
     "huggingface_id": "NbAiLab/nb-wav2vec2-1b-nynorsk",
     "supported_quants": [
       "Q4_K_M",
@@ -1498,7 +1473,29 @@
       "F16"
     ],
     "pipeline_tag": "automatic-speech-recognition",
-    "downloads": 1348529,
+    "downloads": 1358744,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen3.5 2B",
+    "parameters_b": 2,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 1.3M downloads",
+    "huggingface_id": "Qwen/Qwen3.5-2B",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 1330128,
     "license": "apache-2.0"
   },
   {
@@ -1523,7 +1520,53 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1321695,
+    "downloads": 1319248,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "mms 1b all",
+    "parameters_b": 1,
+    "num_layers": 48,
+    "kv_heads": 16,
+    "head_dim": 80,
+    "max_context": 0,
+    "categories": [
+      "Speech Recognition"
+    ],
+    "description": "HuggingFace model with 1.3M downloads",
+    "huggingface_id": "facebook/mms-1b-all",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "automatic-speech-recognition",
+    "downloads": 1316232,
+    "license": "cc-by-nc-4.0"
+  },
+  {
+    "name": "Qwen2.5 14B Instruct",
+    "parameters_b": 14,
+    "num_layers": 48,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 1.3M downloads",
+    "huggingface_id": "Qwen/Qwen2.5-14B-Instruct",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 1309760,
     "license": "apache-2.0"
   },
   {
@@ -1548,101 +1591,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1288202,
+    "downloads": 1266435,
     "license": "other"
-  },
-  {
-    "name": "Qwen3.5 2B",
-    "parameters_b": 2,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 1.3M downloads",
-    "huggingface_id": "Qwen/Qwen3.5-2B",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 1276753,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "mms 1b all",
-    "parameters_b": 1,
-    "num_layers": 48,
-    "kv_heads": 16,
-    "head_dim": 80,
-    "max_context": 0,
-    "categories": [
-      "Speech Recognition"
-    ],
-    "description": "HuggingFace model with 1.2M downloads",
-    "huggingface_id": "facebook/mms-1b-all",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "automatic-speech-recognition",
-    "downloads": 1244755,
-    "license": "cc-by-nc-4.0"
-  },
-  {
-    "name": "h2ovl mississippi 2b",
-    "parameters_b": 2,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 1.2M downloads",
-    "huggingface_id": "h2oai/h2ovl-mississippi-2b",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 1235848,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3 30B A3B Instruct 2507",
-    "parameters_b": 30,
-    "num_layers": 48,
-    "kv_heads": 4,
-    "head_dim": 64,
-    "max_context": 262144,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 1.2M downloads",
-    "huggingface_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 1217865,
-    "license": "apache-2.0"
   },
   {
     "name": "Qwen3 4B Thinking 2507",
@@ -1666,7 +1616,57 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1217195,
+    "downloads": 1214957,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "NVIDIA Nemotron 3 Super 120B A12B NVFP4",
+    "parameters_b": 120,
+    "num_layers": 88,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "max_context": 262144,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 1.2M downloads",
+    "huggingface_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 1197775,
+    "license": "other"
+  },
+  {
+    "name": "h2ovl mississippi 2b",
+    "parameters_b": 2,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 1.2M downloads",
+    "huggingface_id": "h2oai/h2ovl-mississippi-2b",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 1191820,
     "license": "apache-2.0"
   },
   {
@@ -1691,7 +1691,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1180245,
+    "downloads": 1168472,
     "license": "llama3.2"
   },
   {
@@ -1716,7 +1716,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1145452,
+    "downloads": 1143230,
     "license": "mit"
   },
   {
@@ -1741,55 +1741,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1142973,
+    "downloads": 1134092,
     "license": "apache-2.0"
-  },
-  {
-    "name": "NVIDIA Nemotron 3 Super 120B A12B NVFP4",
-    "parameters_b": 120,
-    "num_layers": 88,
-    "kv_heads": 2,
-    "head_dim": 128,
-    "max_context": 262144,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 1.1M downloads",
-    "huggingface_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 1115925,
-    "license": "other"
-  },
-  {
-    "name": "gemma 3 27b it",
-    "parameters_b": 27,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 1.1M downloads",
-    "huggingface_id": "google/gemma-3-27b-it",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 1098950,
-    "license": "gemma"
   },
   {
     "name": "SmolLM3 3B",
@@ -1813,7 +1766,29 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1093577,
+    "downloads": 1092049,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen3 VL 32B Instruct",
+    "parameters_b": 32,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 1.1M downloads",
+    "huggingface_id": "Qwen/Qwen3-VL-32B-Instruct",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 1074627,
     "license": "apache-2.0"
   },
   {
@@ -1838,8 +1813,30 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1076582,
+    "downloads": 1068226,
     "license": "apache-2.0"
+  },
+  {
+    "name": "gemma 3 27b it",
+    "parameters_b": 27,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 1.1M downloads",
+    "huggingface_id": "google/gemma-3-27b-it",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 1063722,
+    "license": "gemma"
   },
   {
     "name": "NVIDIA Nemotron 3 Nano 30B A3B BF16",
@@ -1851,7 +1848,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 1.1M downloads",
+    "description": "HuggingFace model with 1.0M downloads",
     "huggingface_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
     "supported_quants": [
       "Q2_K",
@@ -1863,30 +1860,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1072553,
+    "downloads": 1049916,
     "license": "other"
-  },
-  {
-    "name": "Qwen3 VL 32B Instruct",
-    "parameters_b": 32,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 1.1M downloads",
-    "huggingface_id": "Qwen/Qwen3-VL-32B-Instruct",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 1071744,
-    "license": "apache-2.0"
   },
   {
     "name": "Llama 3.1 70B Instruct",
@@ -1898,7 +1873,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 1.1M downloads",
+    "description": "HuggingFace model with 1.0M downloads",
     "huggingface_id": "meta-llama/Llama-3.1-70B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -1910,7 +1885,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1051044,
+    "downloads": 1039752,
     "license": "llama3.1"
   },
   {
@@ -1935,21 +1910,21 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1031677,
+    "downloads": 1020388,
     "license": "apache-2.0"
   },
   {
-    "name": "Qwen3 4B Base",
-    "parameters_b": 4,
-    "num_layers": 36,
-    "kv_heads": 8,
-    "head_dim": 80,
-    "max_context": 32768,
+    "name": "Qwen3 30B A3B Instruct 2507",
+    "parameters_b": 30,
+    "num_layers": 48,
+    "kv_heads": 4,
+    "head_dim": 64,
+    "max_context": 262144,
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 971K downloads",
-    "huggingface_id": "Qwen/Qwen3-4B-Base",
+    "description": "HuggingFace model with 1.0M downloads",
+    "huggingface_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -1960,42 +1935,21 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 970847,
+    "downloads": 1004466,
     "license": "apache-2.0"
   },
   {
-    "name": "Qwen3 TTS 12Hz 1.7B CustomVoice",
-    "parameters_b": 1.7,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Text to Speech"
-    ],
-    "description": "HuggingFace model with 959K downloads",
-    "huggingface_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-to-speech",
-    "downloads": 958535,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "DeepSeek R1 Distill Qwen 32B",
-    "parameters_b": 32,
-    "num_layers": 64,
-    "kv_heads": 8,
+    "name": "NVIDIA Nemotron 3 Super 120B A12B FP8",
+    "parameters_b": 120,
+    "num_layers": 88,
+    "kv_heads": 2,
     "head_dim": 128,
-    "max_context": 131072,
+    "max_context": 262144,
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 958K downloads",
-    "huggingface_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "description": "HuggingFace model with 988K downloads",
+    "huggingface_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -2006,8 +1960,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 958434,
-    "license": "mit"
+    "downloads": 987661,
+    "license": "other"
   },
   {
     "name": "gemma 3 4b it qat 4bit",
@@ -2020,7 +1974,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 956K downloads",
+    "description": "HuggingFace model with 971K downloads",
     "huggingface_id": "mlx-community/gemma-3-4b-it-qat-4bit",
     "supported_quants": [
       "Q4_K_M",
@@ -2028,21 +1982,42 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 956350,
+    "downloads": 971164,
     "license": "other"
   },
   {
-    "name": "NVIDIA Nemotron 3 Super 120B A12B FP8",
-    "parameters_b": 120,
-    "num_layers": 88,
-    "kv_heads": 2,
-    "head_dim": 128,
-    "max_context": 262144,
+    "name": "Qwen3 TTS 12Hz 1.7B CustomVoice",
+    "parameters_b": 1.7,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Text to Speech"
+    ],
+    "description": "HuggingFace model with 966K downloads",
+    "huggingface_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-to-speech",
+    "downloads": 965921,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen3 4B Base",
+    "parameters_b": 4,
+    "num_layers": 36,
+    "kv_heads": 8,
+    "head_dim": 80,
+    "max_context": 32768,
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 952K downloads",
-    "huggingface_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+    "description": "HuggingFace model with 954K downloads",
+    "huggingface_id": "Qwen/Qwen3-4B-Base",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -2053,8 +2028,33 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 952328,
-    "license": "other"
+    "downloads": 954040,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "DeepSeek R1 Distill Qwen 32B",
+    "parameters_b": 32,
+    "num_layers": 64,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "max_context": 131072,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 953K downloads",
+    "huggingface_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 953346,
+    "license": "mit"
   },
   {
     "name": "Qwen3.5 27B GGUF",
@@ -2067,7 +2067,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 949K downloads",
+    "description": "HuggingFace model with 951K downloads",
     "huggingface_id": "unsloth/Qwen3.5-27B-GGUF",
     "supported_quants": [
       "Q4_K_M",
@@ -2075,32 +2075,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 949339,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen2.5 1.5B quantized.w8a8",
-    "parameters_b": 1.5,
-    "num_layers": 28,
-    "kv_heads": 2,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 926K downloads",
-    "huggingface_id": "RedHatAI/Qwen2.5-1.5B-quantized.w8a8",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 925817,
+    "downloads": 950579,
     "license": "apache-2.0"
   },
   {
@@ -2113,7 +2088,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 897K downloads",
+    "description": "HuggingFace model with 936K downloads",
     "huggingface_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -2125,7 +2100,32 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 897318,
+    "downloads": 936063,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen2.5 1.5B quantized.w8a8",
+    "parameters_b": 1.5,
+    "num_layers": 28,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 916K downloads",
+    "huggingface_id": "RedHatAI/Qwen2.5-1.5B-quantized.w8a8",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 916266,
     "license": "apache-2.0"
   },
   {
@@ -2138,7 +2138,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 872K downloads",
+    "description": "HuggingFace model with 896K downloads",
     "huggingface_id": "hugging-quants/Llama-3.2-1B-Instruct-Q8_0-GGUF",
     "supported_quants": [
       "Q2_K",
@@ -2150,7 +2150,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 872092,
+    "downloads": 896070,
     "license": ""
   },
   {
@@ -2164,7 +2164,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 866K downloads",
+    "description": "HuggingFace model with 862K downloads",
     "huggingface_id": "Qwen/Qwen3.5-27B-FP8",
     "supported_quants": [
       "Q4_K_M",
@@ -2172,7 +2172,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 865860,
+    "downloads": 861948,
     "license": "apache-2.0"
   },
   {
@@ -2185,7 +2185,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 865K downloads",
+    "description": "HuggingFace model with 858K downloads",
     "huggingface_id": "meta-llama/Llama-2-7b-hf",
     "supported_quants": [
       "Q2_K",
@@ -2197,58 +2197,8 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 864612,
+    "downloads": 858326,
     "license": "llama2"
-  },
-  {
-    "name": "Qwen2.5 Coder 1.5B Instruct",
-    "parameters_b": 1.5,
-    "num_layers": 28,
-    "kv_heads": 2,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 855K downloads",
-    "huggingface_id": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 855485,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Llama 3.2 1B Instruct FP8",
-    "parameters_b": 1,
-    "num_layers": 16,
-    "kv_heads": 8,
-    "head_dim": 64,
-    "max_context": 131072,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 850K downloads",
-    "huggingface_id": "RedHatAI/Llama-3.2-1B-Instruct-FP8",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 850121,
-    "license": "llama3.2"
   },
   {
     "name": "Qwen3.5 122B A10B FP8",
@@ -2261,7 +2211,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 848K downloads",
+    "description": "HuggingFace model with 854K downloads",
     "huggingface_id": "Qwen/Qwen3.5-122B-A10B-FP8",
     "supported_quants": [
       "Q4_K_M",
@@ -2269,7 +2219,57 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 847620,
+    "downloads": 854237,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Llama 3.2 1B Instruct FP8",
+    "parameters_b": 1,
+    "num_layers": 16,
+    "kv_heads": 8,
+    "head_dim": 64,
+    "max_context": 131072,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 838K downloads",
+    "huggingface_id": "RedHatAI/Llama-3.2-1B-Instruct-FP8",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 837572,
+    "license": "llama3.2"
+  },
+  {
+    "name": "Qwen2.5 Coder 1.5B Instruct",
+    "parameters_b": 1.5,
+    "num_layers": 28,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 830K downloads",
+    "huggingface_id": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 829538,
     "license": "apache-2.0"
   },
   {
@@ -2282,7 +2282,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 811K downloads",
+    "description": "HuggingFace model with 823K downloads",
     "huggingface_id": "Qwen/Qwen3-8B-AWQ",
     "supported_quants": [
       "Q2_K",
@@ -2294,32 +2294,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 810737,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3 32B AWQ",
-    "parameters_b": 32,
-    "num_layers": 64,
-    "kv_heads": 8,
-    "head_dim": 80,
-    "max_context": 40960,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 777K downloads",
-    "huggingface_id": "Qwen/Qwen3-32B-AWQ",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 777417,
+    "downloads": 823370,
     "license": "apache-2.0"
   },
   {
@@ -2332,7 +2307,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 777K downloads",
+    "description": "HuggingFace model with 816K downloads",
     "huggingface_id": "Qwen/Qwen2.5-7B-Instruct-AWQ",
     "supported_quants": [
       "Q2_K",
@@ -2344,21 +2319,21 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 776664,
+    "downloads": 815843,
     "license": "apache-2.0"
   },
   {
-    "name": "Qwen2.5 Math 1.5B",
-    "parameters_b": 1.5,
-    "num_layers": 28,
-    "kv_heads": 2,
-    "head_dim": 128,
-    "max_context": 4096,
+    "name": "Qwen3 32B AWQ",
+    "parameters_b": 32,
+    "num_layers": 64,
+    "kv_heads": 8,
+    "head_dim": 80,
+    "max_context": 40960,
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 766K downloads",
-    "huggingface_id": "Qwen/Qwen2.5-Math-1.5B",
+    "description": "HuggingFace model with 792K downloads",
+    "huggingface_id": "Qwen/Qwen3-32B-AWQ",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -2369,7 +2344,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 766257,
+    "downloads": 791866,
     "license": "apache-2.0"
   },
   {
@@ -2382,7 +2357,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 758K downloads",
+    "description": "HuggingFace model with 787K downloads",
     "huggingface_id": "Qwen/Qwen2.5-Coder-14B-Instruct",
     "supported_quants": [
       "Q2_K",
@@ -2394,21 +2369,21 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 758439,
+    "downloads": 786640,
     "license": "apache-2.0"
   },
   {
-    "name": "Qwen2.5 Coder 32B Instruct AWQ",
-    "parameters_b": 32,
-    "num_layers": 64,
-    "kv_heads": 8,
+    "name": "Qwen2.5 Math 1.5B",
+    "parameters_b": 1.5,
+    "num_layers": 28,
+    "kv_heads": 2,
     "head_dim": 128,
-    "max_context": 32768,
+    "max_context": 4096,
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 734K downloads",
-    "huggingface_id": "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ",
+    "description": "HuggingFace model with 768K downloads",
+    "huggingface_id": "Qwen/Qwen2.5-Math-1.5B",
     "supported_quants": [
       "Q2_K",
       "Q3_K_M",
@@ -2419,8 +2394,33 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 734461,
+    "downloads": 768235,
     "license": "apache-2.0"
+  },
+  {
+    "name": "DeepSeek R1 Distill Qwen 1.5B",
+    "parameters_b": 1.5,
+    "num_layers": 28,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "max_context": 131072,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 758K downloads",
+    "huggingface_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 758099,
+    "license": "mit"
   },
   {
     "name": "Qwen3.5 35B A3B AWQ 4bit",
@@ -2433,7 +2433,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 733K downloads",
+    "description": "HuggingFace model with 735K downloads",
     "huggingface_id": "cyankiwi/Qwen3.5-35B-A3B-AWQ-4bit",
     "supported_quants": [
       "Q4_K_M",
@@ -2441,82 +2441,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 732580,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3 4B Instruct 2507 FP8",
-    "parameters_b": 4,
-    "num_layers": 36,
-    "kv_heads": 8,
-    "head_dim": 80,
-    "max_context": 262144,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 722K downloads",
-    "huggingface_id": "Qwen/Qwen3-4B-Instruct-2507-FP8",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 721768,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "llama 3.3 70b instruct awq",
-    "parameters_b": 70,
-    "num_layers": 80,
-    "kv_heads": 8,
-    "head_dim": 128,
-    "max_context": 131072,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 711K downloads",
-    "huggingface_id": "casperhansen/llama-3.3-70b-instruct-awq",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 710813,
-    "license": "llama3.3"
-  },
-  {
-    "name": "Qwen2.5 Coder 7B Instruct AWQ",
-    "parameters_b": 7,
-    "num_layers": 28,
-    "kv_heads": 4,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 695K downloads",
-    "huggingface_id": "Qwen/Qwen2.5-Coder-7B-Instruct-AWQ",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 694735,
+    "downloads": 735161,
     "license": "apache-2.0"
   },
   {
@@ -2529,7 +2454,7 @@
     "categories": [
       "Text Generation"
     ],
-    "description": "HuggingFace model with 685K downloads",
+    "description": "HuggingFace model with 734K downloads",
     "huggingface_id": "Qwen/Qwen2.5-1.5B",
     "supported_quants": [
       "Q2_K",
@@ -2541,8 +2466,58 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 685415,
+    "downloads": 734376,
     "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen3 4B Instruct 2507 FP8",
+    "parameters_b": 4,
+    "num_layers": 36,
+    "kv_heads": 8,
+    "head_dim": 80,
+    "max_context": 262144,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 715K downloads",
+    "huggingface_id": "Qwen/Qwen3-4B-Instruct-2507-FP8",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 715358,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen2.5 72B Instruct",
+    "parameters_b": 72,
+    "num_layers": 80,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 691K downloads",
+    "huggingface_id": "Qwen/Qwen2.5-72B-Instruct",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 690954,
+    "license": "other"
   },
   {
     "name": "InternVL3 5 GPT OSS 20B A4B Preview HF",
@@ -2563,29 +2538,32 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 683207,
+    "downloads": 683145,
     "license": "apache-2.0"
   },
   {
-    "name": "Qwen3.5 122B A10B",
-    "parameters_b": 122,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
+    "name": "Qwen2.5 1.5B Instruct AWQ",
+    "parameters_b": 1.5,
+    "num_layers": 28,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "max_context": 32768,
     "categories": [
-      "Multimodal",
-      "Vision"
+      "Text Generation"
     ],
-    "description": "HuggingFace model with 656K downloads",
-    "huggingface_id": "Qwen/Qwen3.5-122B-A10B",
+    "description": "HuggingFace model with 675K downloads",
+    "huggingface_id": "Qwen/Qwen2.5-1.5B-Instruct-AWQ",
     "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
       "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
       "Q8_0",
       "F16"
     ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 655852,
+    "pipeline_tag": "text-generation",
+    "downloads": 675398,
     "license": "apache-2.0"
   },
   {
@@ -2599,7 +2577,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 652K downloads",
+    "description": "HuggingFace model with 670K downloads",
     "huggingface_id": "Qwen/Qwen3.5-35B-A3B-GPTQ-Int4",
     "supported_quants": [
       "Q4_K_M",
@@ -2607,12 +2585,37 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 651736,
+    "downloads": 670157,
     "license": "apache-2.0"
   },
   {
-    "name": "llava v1.6 mistral 7b hf",
-    "parameters_b": 7,
+    "name": "llama 3.3 70b instruct awq",
+    "parameters_b": 70,
+    "num_layers": 80,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "max_context": 131072,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 669K downloads",
+    "huggingface_id": "casperhansen/llama-3.3-70b-instruct-awq",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 668501,
+    "license": "llama3.3"
+  },
+  {
+    "name": "Qwen3.5 122B A10B",
+    "parameters_b": 122,
     "num_layers": 0,
     "kv_heads": 0,
     "head_dim": 0,
@@ -2621,15 +2624,15 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 641K downloads",
-    "huggingface_id": "llava-hf/llava-v1.6-mistral-7b-hf",
+    "description": "HuggingFace model with 648K downloads",
+    "huggingface_id": "Qwen/Qwen3.5-122B-A10B",
     "supported_quants": [
       "Q4_K_M",
       "Q8_0",
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 641003,
+    "downloads": 647902,
     "license": "apache-2.0"
   },
   {
@@ -2642,7 +2645,7 @@
     "categories": [
       "Text to Speech"
     ],
-    "description": "HuggingFace model with 631K downloads",
+    "description": "HuggingFace model with 643K downloads",
     "huggingface_id": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
     "supported_quants": [
       "Q4_K_M",
@@ -2650,8 +2653,51 @@
       "F16"
     ],
     "pipeline_tag": "text-to-speech",
-    "downloads": 630811,
+    "downloads": 643257,
     "license": "apache-2.0"
+  },
+  {
+    "name": "Qwen3.5 27B Claude 4.6 Opus Reasoning Distilled GGUF",
+    "parameters_b": 27,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 640K downloads",
+    "huggingface_id": "Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled-GGUF",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 639881,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "higgs audio v2 generation 3B base",
+    "parameters_b": 3,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Text to Speech"
+    ],
+    "description": "HuggingFace model with 633K downloads",
+    "huggingface_id": "bosonai/higgs-audio-v2-generation-3B-base",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-to-speech",
+    "downloads": 632565,
+    "license": "other"
   },
   {
     "name": "Qwen3 VL 4B Instruct AWQ 4bit",
@@ -2672,33 +2718,12 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 621821,
+    "downloads": 621841,
     "license": "apache-2.0"
   },
   {
-    "name": "higgs audio v2 generation 3B base",
-    "parameters_b": 3,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Text to Speech"
-    ],
-    "description": "HuggingFace model with 621K downloads",
-    "huggingface_id": "bosonai/higgs-audio-v2-generation-3B-base",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-to-speech",
-    "downloads": 621167,
-    "license": "other"
-  },
-  {
-    "name": "llava onevision qwen2 0.5b ov hf",
-    "parameters_b": 0.5,
+    "name": "llava v1.6 mistral 7b hf",
+    "parameters_b": 7,
     "num_layers": 0,
     "kv_heads": 0,
     "head_dim": 0,
@@ -2707,37 +2732,15 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 600K downloads",
-    "huggingface_id": "llava-hf/llava-onevision-qwen2-0.5b-ov-hf",
+    "description": "HuggingFace model with 616K downloads",
+    "huggingface_id": "llava-hf/llava-v1.6-mistral-7b-hf",
     "supported_quants": [
       "Q4_K_M",
       "Q8_0",
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 599654,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Qwen3.5 27B Claude 4.6 Opus Reasoning Distilled GGUF",
-    "parameters_b": 27,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 591K downloads",
-    "huggingface_id": "Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled-GGUF",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 590877,
+    "downloads": 616025,
     "license": "apache-2.0"
   },
   {
@@ -2751,7 +2754,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 584K downloads",
+    "description": "HuggingFace model with 609K downloads",
     "huggingface_id": "unsloth/Qwen3.5-4B-GGUF",
     "supported_quants": [
       "Q4_K_M",
@@ -2759,7 +2762,29 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 584412,
+    "downloads": 609276,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "gemma 3 27b it AWQ INT4",
+    "parameters_b": 27,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 592K downloads",
+    "huggingface_id": "pytorch/gemma-3-27b-it-AWQ-INT4",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 591768,
     "license": "apache-2.0"
   },
   {
@@ -2773,7 +2798,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 577K downloads",
+    "description": "HuggingFace model with 587K downloads",
     "huggingface_id": "lightonai/LightOnOCR-2-1B",
     "supported_quants": [
       "Q4_K_M",
@@ -2781,30 +2806,8 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 576773,
+    "downloads": 587182,
     "license": "apache-2.0"
-  },
-  {
-    "name": "blip2 opt 2.7b",
-    "parameters_b": 2.7,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 572K downloads",
-    "huggingface_id": "Salesforce/blip2-opt-2.7b",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 572292,
-    "license": "mit"
   },
   {
     "name": "Qwen3.5 397B A17B FP8",
@@ -2817,7 +2820,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 572K downloads",
+    "description": "HuggingFace model with 578K downloads",
     "huggingface_id": "Qwen/Qwen3.5-397B-A17B-FP8",
     "supported_quants": [
       "Q4_K_M",
@@ -2825,7 +2828,29 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 571877,
+    "downloads": 577509,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "llava onevision qwen2 0.5b ov hf",
+    "parameters_b": 0.5,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 569K downloads",
+    "huggingface_id": "llava-hf/llava-onevision-qwen2-0.5b-ov-hf",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 568963,
     "license": "apache-2.0"
   },
   {
@@ -2839,7 +2864,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 571K downloads",
+    "description": "HuggingFace model with 566K downloads",
     "huggingface_id": "allenai/Molmo2-8B",
     "supported_quants": [
       "Q4_K_M",
@@ -2847,7 +2872,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 571199,
+    "downloads": 566267,
     "license": "apache-2.0"
   },
   {
@@ -2860,7 +2885,7 @@
     "categories": [
       "Text to Speech"
     ],
-    "description": "HuggingFace model with 489K downloads",
+    "description": "HuggingFace model with 500K downloads",
     "huggingface_id": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
     "supported_quants": [
       "Q4_K_M",
@@ -2868,7 +2893,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-speech",
-    "downloads": 489322,
+    "downloads": 500153,
     "license": "apache-2.0"
   },
   {
@@ -2881,7 +2906,7 @@
     "categories": [
       "Image Generation"
     ],
-    "description": "HuggingFace model with 360K downloads",
+    "description": "HuggingFace model with 359K downloads",
     "huggingface_id": "black-forest-labs/FLUX.2-klein-base-4B",
     "supported_quants": [
       "Q4_K_M",
@@ -2889,7 +2914,7 @@
       "F16"
     ],
     "pipeline_tag": "image-to-image",
-    "downloads": 359606,
+    "downloads": 358702,
     "license": "apache-2.0"
   },
   {
@@ -2902,7 +2927,7 @@
     "categories": [
       "Text to Speech"
     ],
-    "description": "HuggingFace model with 298K downloads",
+    "description": "HuggingFace model with 313K downloads",
     "huggingface_id": "microsoft/VibeVoice-Realtime-0.5B",
     "supported_quants": [
       "Q4_K_M",
@@ -2910,7 +2935,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-speech",
-    "downloads": 297657,
+    "downloads": 313074,
     "license": "mit"
   },
   {
@@ -2923,7 +2948,7 @@
     "categories": [
       "Image Generation"
     ],
-    "description": "HuggingFace model with 266K downloads",
+    "description": "HuggingFace model with 268K downloads",
     "huggingface_id": "black-forest-labs/FLUX.2-klein-4B",
     "supported_quants": [
       "Q4_K_M",
@@ -2931,7 +2956,7 @@
       "F16"
     ],
     "pipeline_tag": "image-to-image",
-    "downloads": 266449,
+    "downloads": 267579,
     "license": "apache-2.0"
   },
   {
@@ -2944,7 +2969,7 @@
     "categories": [
       "Text to Speech"
     ],
-    "description": "HuggingFace model with 246K downloads",
+    "description": "HuggingFace model with 243K downloads",
     "huggingface_id": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
     "supported_quants": [
       "Q4_K_M",
@@ -2952,7 +2977,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-speech",
-    "downloads": 246403,
+    "downloads": 242706,
     "license": "apache-2.0"
   },
   {
@@ -2965,7 +2990,7 @@
     "categories": [
       "Text to Speech"
     ],
-    "description": "HuggingFace model with 208K downloads",
+    "description": "HuggingFace model with 197K downloads",
     "huggingface_id": "hypaai/Hypa_Orpheus-3b-0.1-ft-unsloth-merged_16bit",
     "supported_quants": [
       "Q4_K_M",
@@ -2973,7 +2998,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-speech",
-    "downloads": 208320,
+    "downloads": 197140,
     "license": "apache-2.0"
   },
   {
@@ -2986,15 +3011,15 @@
     "categories": [
       "Image Generation"
     ],
-    "description": "HuggingFace model with 147K downloads",
+    "description": "HuggingFace model with 144K downloads",
     "huggingface_id": "Runware/BFL-FLUX.2-klein-9B",
     "supported_quants": [
       "Q4_K_M",
       "Q8_0",
       "F16"
     ],
-    "pipeline_tag": "image-to-image",
-    "downloads": 147128,
+    "pipeline_tag": "text-to-image",
+    "downloads": 144273,
     "license": ""
   },
   {
@@ -3007,7 +3032,7 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 115K downloads",
+    "description": "HuggingFace model with 112K downloads",
     "huggingface_id": "Wan-AI/Wan2.2-T2V-A14B-Diffusers",
     "supported_quants": [
       "Q4_K_M",
@@ -3015,7 +3040,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 115173,
+    "downloads": 111562,
     "license": "apache-2.0"
   },
   {
@@ -3028,7 +3053,7 @@
     "categories": [
       "Image Generation"
     ],
-    "description": "HuggingFace model with 112K downloads",
+    "description": "HuggingFace model with 111K downloads",
     "huggingface_id": "black-forest-labs/FLUX.2-klein-9B",
     "supported_quants": [
       "Q4_K_M",
@@ -3036,7 +3061,7 @@
       "F16"
     ],
     "pipeline_tag": "image-to-image",
-    "downloads": 111930,
+    "downloads": 111415,
     "license": "other"
   },
   {
@@ -3049,7 +3074,7 @@
     "categories": [
       "Image Generation"
     ],
-    "description": "HuggingFace model with 108K downloads",
+    "description": "HuggingFace model with 107K downloads",
     "huggingface_id": "black-forest-labs/FLUX.2-klein-4b-fp8",
     "supported_quants": [
       "Q4_K_M",
@@ -3057,7 +3082,7 @@
       "F16"
     ],
     "pipeline_tag": "image-to-image",
-    "downloads": 108070,
+    "downloads": 106613,
     "license": "apache-2.0"
   },
   {
@@ -3070,7 +3095,7 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 98K downloads",
+    "description": "HuggingFace model with 97K downloads",
     "huggingface_id": "QuantStack/Wan2.2-T2V-A14B-GGUF",
     "supported_quants": [
       "Q4_K_M",
@@ -3078,7 +3103,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 98243,
+    "downloads": 97163,
     "license": "apache-2.0"
   },
   {
@@ -3099,7 +3124,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 96385,
+    "downloads": 95773,
     "license": "apache-2.0"
   },
   {
@@ -3120,7 +3145,7 @@
       "F16"
     ],
     "pipeline_tag": "image-to-image",
-    "downloads": 80376,
+    "downloads": 79904,
     "license": "apache-2.0"
   },
   {
@@ -3141,7 +3166,28 @@
       "F16"
     ],
     "pipeline_tag": "image-to-image",
-    "downloads": 63930,
+    "downloads": 64314,
+    "license": "other"
+  },
+  {
+    "name": "FLUX.2 klein 9b kv fp8",
+    "parameters_b": 9,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Image Generation"
+    ],
+    "description": "HuggingFace model with 62K downloads",
+    "huggingface_id": "black-forest-labs/FLUX.2-klein-9b-kv-fp8",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-to-image",
+    "downloads": 61509,
     "license": "other"
   },
   {
@@ -3162,7 +3208,7 @@
       "F16"
     ],
     "pipeline_tag": "image-to-image",
-    "downloads": 61367,
+    "downloads": 61458,
     "license": "other"
   },
   {
@@ -3175,7 +3221,7 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 58K downloads",
+    "description": "HuggingFace model with 60K downloads",
     "huggingface_id": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
     "supported_quants": [
       "Q4_K_M",
@@ -3183,7 +3229,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 57843,
+    "downloads": 59672,
     "license": "apache-2.0"
   },
   {
@@ -3196,7 +3242,7 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 36K downloads",
+    "description": "HuggingFace model with 37K downloads",
     "huggingface_id": "magespace/Wan2.2-I2V-A14B-Lightning-Diffusers",
     "supported_quants": [
       "Q4_K_M",
@@ -3204,7 +3250,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 36118,
+    "downloads": 36587,
     "license": "apache-2.0"
   },
   {
@@ -3217,7 +3263,7 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 35K downloads",
+    "description": "HuggingFace model with 34K downloads",
     "huggingface_id": "Wan-AI/Wan2.1-T2V-14B",
     "supported_quants": [
       "Q4_K_M",
@@ -3225,7 +3271,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 34667,
+    "downloads": 34364,
     "license": "apache-2.0"
   },
   {
@@ -3238,7 +3284,7 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 30K downloads",
+    "description": "HuggingFace model with 31K downloads",
     "huggingface_id": "zai-org/CogVideoX-5b",
     "supported_quants": [
       "Q4_K_M",
@@ -3246,8 +3292,50 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 30093,
+    "downloads": 30751,
     "license": "other"
+  },
+  {
+    "name": "Wan2.1 T2V 14B gguf",
+    "parameters_b": 14,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Video Generation"
+    ],
+    "description": "HuggingFace model with 25K downloads",
+    "huggingface_id": "city96/Wan2.1-T2V-14B-gguf",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-to-video",
+    "downloads": 24531,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "Wan2.2 TI2V 5B GGUF",
+    "parameters_b": 5,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Video Generation"
+    ],
+    "description": "HuggingFace model with 24K downloads",
+    "huggingface_id": "QuantStack/Wan2.2-TI2V-5B-GGUF",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-to-video",
+    "downloads": 23618,
+    "license": "apache-2.0"
   },
   {
     "name": "FastWan2.2 TI2V 5B FullAttn Diffusers",
@@ -3267,7 +3355,28 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 22779,
+    "downloads": 22582,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "CogVideoX 2b",
+    "parameters_b": 2,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Video Generation"
+    ],
+    "description": "HuggingFace model with 22K downloads",
+    "huggingface_id": "zai-org/CogVideoX-2b",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-to-video",
+    "downloads": 21667,
     "license": "apache-2.0"
   },
   {
@@ -3288,49 +3397,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 19981,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Wan2.1 T2V 14B gguf",
-    "parameters_b": 14,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Video Generation"
-    ],
-    "description": "HuggingFace model with 20K downloads",
-    "huggingface_id": "city96/Wan2.1-T2V-14B-gguf",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-to-video",
-    "downloads": 19717,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Wan2.1 T2V 14B Diffusers",
-    "parameters_b": 14,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Video Generation"
-    ],
-    "description": "HuggingFace model with 18K downloads",
-    "huggingface_id": "Wan-AI/Wan2.1-T2V-14B-Diffusers",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-to-video",
-    "downloads": 18197,
+    "downloads": 20016,
     "license": "apache-2.0"
   },
   {
@@ -3351,12 +3418,12 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 18179,
+    "downloads": 18150,
     "license": "apache-2.0"
   },
   {
-    "name": "CogVideoX 2b",
-    "parameters_b": 2,
+    "name": "Wan2.1 T2V 14B Diffusers",
+    "parameters_b": 14,
     "num_layers": 0,
     "kv_heads": 0,
     "head_dim": 0,
@@ -3364,16 +3431,37 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 17K downloads",
-    "huggingface_id": "zai-org/CogVideoX-2b",
+    "description": "HuggingFace model with 16K downloads",
+    "huggingface_id": "Wan-AI/Wan2.1-T2V-14B-Diffusers",
     "supported_quants": [
       "Q4_K_M",
       "Q8_0",
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 17387,
+    "downloads": 16338,
     "license": "apache-2.0"
+  },
+  {
+    "name": "LTX Video ICLoRA detailer 13b 0.9.8",
+    "parameters_b": 13,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Video Generation"
+    ],
+    "description": "HuggingFace model with 16K downloads",
+    "huggingface_id": "Lightricks/LTX-Video-ICLoRA-detailer-13b-0.9.8",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-to-video",
+    "downloads": 15510,
+    "license": "other"
   },
   {
     "name": "Wan2.1 Fun 14B Control",
@@ -3393,28 +3481,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 14890,
-    "license": "apache-2.0"
-  },
-  {
-    "name": "Wan2.2 TI2V 5B GGUF",
-    "parameters_b": 5,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Video Generation"
-    ],
-    "description": "HuggingFace model with 15K downloads",
-    "huggingface_id": "QuantStack/Wan2.2-TI2V-5B-GGUF",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-to-video",
-    "downloads": 14869,
+    "downloads": 14872,
     "license": "apache-2.0"
   },
   {
@@ -3435,29 +3502,8 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 14624,
+    "downloads": 14789,
     "license": "apache-2.0"
-  },
-  {
-    "name": "LTX Video ICLoRA detailer 13b 0.9.8",
-    "parameters_b": 13,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Video Generation"
-    ],
-    "description": "HuggingFace model with 14K downloads",
-    "huggingface_id": "Lightricks/LTX-Video-ICLoRA-detailer-13b-0.9.8",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-to-video",
-    "downloads": 14275,
-    "license": "other"
   },
   {
     "name": "text to video ms 1.7b",
@@ -3477,7 +3523,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 9874,
+    "downloads": 9880,
     "license": "cc-by-nc-4.0"
   },
   {
@@ -3498,7 +3544,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 8288,
+    "downloads": 8348,
     "license": "other"
   },
   {
@@ -3519,7 +3565,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 6555,
+    "downloads": 6574,
     "license": "apache-2.0"
   },
   {
@@ -3540,7 +3586,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-audio",
-    "downloads": 5098,
+    "downloads": 4977,
     "license": "mit"
   },
   {
@@ -3561,29 +3607,8 @@
       "F16"
     ],
     "pipeline_tag": "text-to-audio",
-    "downloads": 4495,
+    "downloads": 4411,
     "license": "llama3.2"
-  },
-  {
-    "name": "higgs audio v2 generation 3B base",
-    "parameters_b": 3,
-    "num_layers": 28,
-    "kv_heads": 8,
-    "head_dim": 128,
-    "max_context": 2048,
-    "categories": [
-      "Audio Generation"
-    ],
-    "description": "HuggingFace model with 4K downloads",
-    "huggingface_id": "eustlb/higgs-audio-v2-generation-3B-base",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-to-audio",
-    "downloads": 4034,
-    "license": ""
   },
   {
     "name": "acestep 5Hz lm 4B",
@@ -3603,8 +3628,29 @@
       "F16"
     ],
     "pipeline_tag": "text-to-audio",
-    "downloads": 3950,
+    "downloads": 4016,
     "license": "mit"
+  },
+  {
+    "name": "higgs audio v2 generation 3B base",
+    "parameters_b": 3,
+    "num_layers": 28,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "max_context": 2048,
+    "categories": [
+      "Audio Generation"
+    ],
+    "description": "HuggingFace model with 4K downloads",
+    "huggingface_id": "eustlb/higgs-audio-v2-generation-3B-base",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-to-audio",
+    "downloads": 3931,
+    "license": ""
   },
   {
     "name": "HeartMuLa oss 3B happy new year",
@@ -3624,7 +3670,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-audio",
-    "downloads": 3099,
+    "downloads": 3060,
     "license": "apache-2.0"
   }
 ]
