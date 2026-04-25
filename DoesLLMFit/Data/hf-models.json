@@ -663,7 +663,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 3106432,
+    "downloads": 3123914,
     "license": "apache-2.0"
   },
   {
@@ -796,7 +796,7 @@
       "Multimodal",
       "Vision"
     ],
-    "description": "HuggingFace model with 2.7M downloads",
+    "description": "HuggingFace model with 2.6M downloads",
     "huggingface_id": "llava-hf/llava-1.5-7b-hf",
     "supported_quants": [
       "Q4_K_M",
@@ -804,7 +804,7 @@
       "F16"
     ],
     "pipeline_tag": "image-text-to-text",
-    "downloads": 2657146,
+    "downloads": 2622315,
     "license": "llama2"
   },
   {
@@ -974,27 +974,6 @@
     "license": "gemma"
   },
   {
-    "name": "mms 1b all",
-    "parameters_b": 1,
-    "num_layers": 48,
-    "kv_heads": 16,
-    "head_dim": 80,
-    "max_context": 0,
-    "categories": [
-      "Speech Recognition"
-    ],
-    "description": "HuggingFace model with 2.0M downloads",
-    "huggingface_id": "facebook/mms-1b-all",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "automatic-speech-recognition",
-    "downloads": 1969515,
-    "license": "cc-by-nc-4.0"
-  },
-  {
     "name": "Llama 2 7b hf",
     "parameters_b": 7,
     "num_layers": 0,
@@ -1016,7 +995,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1940076,
+    "downloads": 1943075,
     "license": "llama2"
   },
   {
@@ -1143,6 +1122,27 @@
     "pipeline_tag": "text-generation",
     "downloads": 1888429,
     "license": "apache-2.0"
+  },
+  {
+    "name": "mms 1b all",
+    "parameters_b": 1,
+    "num_layers": 48,
+    "kv_heads": 16,
+    "head_dim": 80,
+    "max_context": 0,
+    "categories": [
+      "Speech Recognition"
+    ],
+    "description": "HuggingFace model with 1.9M downloads",
+    "huggingface_id": "facebook/mms-1b-all",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "automatic-speech-recognition",
+    "downloads": 1870668,
+    "license": "cc-by-nc-4.0"
   },
   {
     "name": "Qwen2 VL 7B Instruct",
@@ -2156,6 +2156,27 @@
     "license": "apache-2.0"
   },
   {
+    "name": "Voxtral Mini 4B Realtime 2602",
+    "parameters_b": 4,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Speech Recognition"
+    ],
+    "description": "HuggingFace model with 1.0M downloads",
+    "huggingface_id": "mistralai/Voxtral-Mini-4B-Realtime-2602",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "automatic-speech-recognition",
+    "downloads": 1020002,
+    "license": "apache-2.0"
+  },
+  {
     "name": "Qwen3 30B A3B Instruct 2507",
     "parameters_b": 30,
     "num_layers": 48,
@@ -2228,6 +2249,31 @@
     "license": "apache-2.0"
   },
   {
+    "name": "Mistral 7B v0.1",
+    "parameters_b": 7,
+    "num_layers": 32,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "max_context": 32768,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 987K downloads",
+    "huggingface_id": "mistralai/Mistral-7B-v0.1",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 987341,
+    "license": "apache-2.0"
+  },
+  {
     "name": "gemma 2 2b it GGUF",
     "parameters_b": 2,
     "num_layers": 0,
@@ -2251,31 +2297,6 @@
     "pipeline_tag": "text-generation",
     "downloads": 984362,
     "license": "gemma"
-  },
-  {
-    "name": "Mistral 7B v0.1",
-    "parameters_b": 7,
-    "num_layers": 32,
-    "kv_heads": 8,
-    "head_dim": 128,
-    "max_context": 32768,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 970K downloads",
-    "huggingface_id": "mistralai/Mistral-7B-v0.1",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 970386,
-    "license": "apache-2.0"
   },
   {
     "name": "Llama 3.1 Nemotron Nano VL 8B V1",
@@ -3189,7 +3210,7 @@
     "categories": [
       "Video Generation"
     ],
-    "description": "HuggingFace model with 48K downloads",
+    "description": "HuggingFace model with 51K downloads",
     "huggingface_id": "ali-vilab/text-to-video-ms-1.7b",
     "supported_quants": [
       "Q4_K_M",
@@ -3197,7 +3218,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 47757,
+    "downloads": 51260,
     "license": "cc-by-nc-4.0"
   },
   {
