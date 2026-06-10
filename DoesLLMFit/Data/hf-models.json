@@ -683,28 +683,6 @@
     "license": "apache-2.0"
   },
   {
-    "name": "llava 1.5 7b hf",
-    "parameters_b": 7,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Multimodal",
-      "Vision"
-    ],
-    "description": "HuggingFace model with 3.2M downloads",
-    "huggingface_id": "llava-hf/llava-1.5-7b-hf",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-text-to-text",
-    "downloads": 3226930,
-    "license": "llama2"
-  },
-  {
     "name": "Qwen3 32B",
     "parameters_b": 32,
     "num_layers": 64,
@@ -728,6 +706,28 @@
     "pipeline_tag": "text-generation",
     "downloads": 3167218,
     "license": "apache-2.0"
+  },
+  {
+    "name": "llava 1.5 7b hf",
+    "parameters_b": 7,
+    "num_layers": 0,
+    "kv_heads": 0,
+    "head_dim": 0,
+    "max_context": 0,
+    "categories": [
+      "Multimodal",
+      "Vision"
+    ],
+    "description": "HuggingFace model with 3.1M downloads",
+    "huggingface_id": "llava-hf/llava-1.5-7b-hf",
+    "supported_quants": [
+      "Q4_K_M",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "downloads": 3124946,
+    "license": "llama2"
   },
   {
     "name": "Qwen3.6 35B A3B Uncensored HauhauCS Aggressive",
@@ -1009,31 +1009,6 @@
     "license": "apache-2.0"
   },
   {
-    "name": "TinyLlama 1.1B Chat v1.0",
-    "parameters_b": 1.1,
-    "num_layers": 22,
-    "kv_heads": 4,
-    "head_dim": 64,
-    "max_context": 2048,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 2.1M downloads",
-    "huggingface_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 2080952,
-    "license": "apache-2.0"
-  },
-  {
     "name": "Qwen3 0.6B FP8",
     "parameters_b": 0.6,
     "num_layers": 28,
@@ -1106,6 +1081,31 @@
     ],
     "pipeline_tag": "text-generation",
     "downloads": 2039860,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "TinyLlama 1.1B Chat v1.0",
+    "parameters_b": 1.1,
+    "num_layers": 22,
+    "kv_heads": 4,
+    "head_dim": 64,
+    "max_context": 2048,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 2.0M downloads",
+    "huggingface_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 2029802,
     "license": "apache-2.0"
   },
   {
@@ -2049,7 +2049,7 @@
       "F16"
     ],
     "pipeline_tag": "text-generation",
-    "downloads": 1286635,
+    "downloads": 1282512,
     "license": "apache-2.0"
   },
   {
@@ -2436,31 +2436,6 @@
     "license": "apache-2.0"
   },
   {
-    "name": "TinyLlama 1.1B Chat v0.3 GPTQ",
-    "parameters_b": 1.1,
-    "num_layers": 22,
-    "kv_heads": 4,
-    "head_dim": 64,
-    "max_context": 2048,
-    "categories": [
-      "Text Generation"
-    ],
-    "description": "HuggingFace model with 920K downloads",
-    "huggingface_id": "TheBloke/TinyLlama-1.1B-Chat-v0.3-GPTQ",
-    "supported_quants": [
-      "Q2_K",
-      "Q3_K_M",
-      "Q4_K_M",
-      "Q5_K_M",
-      "Q6_K",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "text-generation",
-    "downloads": 920175,
-    "license": "apache-2.0"
-  },
-  {
     "name": "Llama 3.2 1B Instruct FP8",
     "parameters_b": 1,
     "num_layers": 16,
@@ -2554,6 +2529,31 @@
     ],
     "pipeline_tag": "text-to-speech",
     "downloads": 905662,
+    "license": "apache-2.0"
+  },
+  {
+    "name": "TinyLlama 1.1B Chat v0.3 GPTQ",
+    "parameters_b": 1.1,
+    "num_layers": 22,
+    "kv_heads": 4,
+    "head_dim": 64,
+    "max_context": 2048,
+    "categories": [
+      "Text Generation"
+    ],
+    "description": "HuggingFace model with 888K downloads",
+    "huggingface_id": "TheBloke/TinyLlama-1.1B-Chat-v0.3-GPTQ",
+    "supported_quants": [
+      "Q2_K",
+      "Q3_K_M",
+      "Q4_K_M",
+      "Q5_K_M",
+      "Q6_K",
+      "Q8_0",
+      "F16"
+    ],
+    "pipeline_tag": "text-generation",
+    "downloads": 888377,
     "license": "apache-2.0"
   },
   {
@@ -2943,7 +2943,7 @@
       "F16"
     ],
     "pipeline_tag": "text-to-video",
-    "downloads": 86646,
+    "downloads": 87475,
     "license": "cc-by-nc-4.0"
   },
   {
@@ -3007,27 +3007,6 @@
     ],
     "pipeline_tag": "image-to-image",
     "downloads": 62881,
-    "license": "other"
-  },
-  {
-    "name": "FLUX.2 klein base 9B",
-    "parameters_b": 9,
-    "num_layers": 0,
-    "kv_heads": 0,
-    "head_dim": 0,
-    "max_context": 0,
-    "categories": [
-      "Image Generation"
-    ],
-    "description": "HuggingFace model with 63K downloads",
-    "huggingface_id": "black-forest-labs/FLUX.2-klein-base-9B",
-    "supported_quants": [
-      "Q4_K_M",
-      "Q8_0",
-      "F16"
-    ],
-    "pipeline_tag": "image-to-image",
-    "downloads": 62528,
     "license": "other"
   },
   {
